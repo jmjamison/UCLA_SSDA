@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -20,8 +23,18 @@
 <br>
 <h2 align="left" id="siteName"><a href="da_catalog_inputDatasetRecord.php" target="_self">Add a Dataset to this record</a></h2> 
 
+
 <form action="da_catalog_edit.php" method="post" name="editRecord" target="_self">
-<input name='submitRecord' type='submit' value='Continue editing this record'><input type='hidden' name='studynumber' value='<?php echo $studynumber ?>'><h2 align="left" id="siteName">Edit this Record</h2>
+<input name='submitRecord' type='submit' value='Continue editing this record'><input type='hidden' name='studynumber' value='<?php 
+
+if (!empty($_POST['studynumber'])) {  // if NOT empty, ie it is set, query by studynumber for base record info
+		$_SESSION['studynumber'] = $_POST['studynumber'];
+		$studynumber =  $_SESSION['studynumber'];
+		
+}
+echo $studynumber
+
+ ?>'><h2 align="left" id="siteName">Edit this Record</h2>
 
 </form> 
 
@@ -52,7 +65,7 @@
 	$PDO_string = "mysql:host=" . $db_host . ";port=" . $db_port . ";dbname=" . $db_name ;
 	
 	try	{
-		$PDO_connection = new PDO($PDO_string, $db_username, $db_password); 
+		$PDO_connection = new PDO($PDO_string, $db_username_edit, $db_password_edit); 
 		
 		} catch(PDOException $e)	{
 			echo "Could not connect to the database because: ".	$e->getMessage()."<br>";
@@ -141,23 +154,6 @@
 		echo "<br>$cite_text";
 	} else { $cite_text= ""; }
 	
-	// there is only a single citation for title/bib/base records
-	//if (isset($_POST['cite_subsort'])) {
-		//$cite_subsort = $_POST['cite_subsort'];
-		//echo " - subsort: $cite_subsort";
-	//} else { $cite_subsort=  ""; }
-	
-	//if (isset($_POST['cite_text'])) {
-		//$cite_subsort = $_POST['cite_text'];
-		//echo " - subsort: " . $cite_text;
-	//} //else { $cite_text=  ""; }
-	
-	//if (isset($_POST['cite_text'])) {
-		//$cite_subsort = $_POST['cite_text'];
-		//echo "citation: " . $cite_text;
-	//} //else { $cite_text=  ""; }
-	
-	
 	if (isset($_POST['justonCD'])) {
 	$justonCD = $_POST['justonCD'];
 	//$justonCD = "";
@@ -172,12 +168,26 @@
 	//echo "<br>" . $title . "<br>";
 	//$title = "Process Evaluation of the Comprehensive Communities Program in Selected Cities in the United States, 1994-1996";
 	
+	if (isset($_POST['dateadded'])) {
+		$dateadded = $_POST['dateadded'];
+		echo "<br>$dateadded";
+	} else { $dateadded= ""; }
+	
 	echo "<h2>New baserecord updated: " . $dateadded . "</h2>";
 	echo "<h2>Fields updated or set for " .  $studynumber  .  "</h2>";	
 	echo "<br><strong>title:</strong> " . $title . "<br><br>";
 	
 	
 	echo "<strong>Fields set:</strong><br>";
+	
+	if (isset($_POST['mobilityData'])) {
+		$mobilityData = $_POST['mobilityData'];
+		echo "<br>$mobilityData";
+	} else { $mobilityData= ""; }
+	if (isset($_POST['eveFielderCollection'])) {
+		$eveFielderCollection = $_POST['eveFielderCollection'];
+		echo "<br>$eveFielderCollection";
+	} else { $eveFielderCollection= ""; }
 		
 	if ($restricted == "*") {echo "restricted<br>";}
 	if ($sda == "*") {echo "SDA<br>";}
@@ -193,8 +203,6 @@
 	//  ----  insert query ----
 // first pass insert data into TITLE, PIFULL, SHFULL
 // title   // pifull   // shfull  // cite gets the citenum from title.cite
-
-//UPDATE title SET Title='$title', Restricted='$restricted', LastUpdated='$lastupdated', SDA='$sda', Varsrch='$varsrch', JustOnCD='$justonCD', mobilityData='$mobilityData', eveFielderCollection='$eveFielderCollection' where StudyNum ='$studynumber'
 
 $query_update_title = "UPDATE title SET Title='" . $title . "', Restricted='" . $restricted . "', LastUpdated='" . $lastupdated . "', SDA='" . $sda .  "', Varsrch='" . $varsrch . "', JustOnCD='" . $justonCD . "', mobilityData='" . $mobilityData . "', eveFielderCollection='" . $eveFielderCollection . "', Cite='" . $citenum . "', WWW='" . $www .  "' where StudyNum ='" . $studynumber . "'";
 //echo "<br>" . $query_update_title . "<br>";   // SDA` = '*' 
@@ -319,9 +327,25 @@ $query_update_title = "UPDATE title SET Title='" . $title . "', Restricted='" . 
 		
 	//--------------------------------------------------------------------------
 		echo $studynumber;	
+		
+		if (isset($_POST['pi'])) {
+		$pi = $_POST['pi'];
+		//$varsrch = "";
+		//echo "<br>$sda";
+	} else {
+		$pi = "";
+	}
+	
+	if (isset($_POST['subject'])) {
+		$subject = $_POST['subject'];
+		//$varsrch = "";
+		//echo "<br>$sda";
+	} else {
+		$subject = "";
+	}
 			
 	
-	session_start();
+	//session_start();
 	
 	$_SESSION['studynumber'] = $studynumber;
 	$_SESSION['title'] = $title;
@@ -348,6 +372,9 @@ $query_update_title = "UPDATE title SET Title='" . $title . "', Restricted='" . 
 	// close the connection
 	// mysql_close($connection);		
 	$PDO_connection = null;
+	
+	
+	session_destroy();
 	
 	// -------------------------------------------------------------------------------
 	
