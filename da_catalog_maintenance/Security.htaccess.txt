@@ -1,0 +1,12 @@
+order deny,allow
+
+deny from all
+
+#  jmj workstation
+allow from 169.232.181.101
+
+# Libbie workstation
+allow from 169.232.181.102
+
+# archive workstation
+allow from 169.232.181.104
