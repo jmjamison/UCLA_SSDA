@@ -12,10 +12,13 @@
 <file name="Security.htaccess.txt" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130892332690000000" remote="130892332690000000" Dst="-1" />
 <file name=".htaccess.htm" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130892334120000000" remote="130892334120000000" Dst="-1" />
 <file name="da_catalog_inputDatasetRecord.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130903550756375925" remote="130903550750000000" Dst="-1" />
-<file name="da_catalog_editDatasetRecord.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130903550363635925" remote="130903550360000000" Dst="-1" />
+<file name="da_catalog_editDatasetRecord.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130904673751290518" remote="130904673750000000" Dst="2" />
 <file name="da_catalog_processFormCheck.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130894931294263837" remote="130894931290000000" Dst="2" />
 <file name="da_catalog_updateCheck.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130903576020000000" remote="130903576020000000" Dst="2" />
 <file name="da_catalog_update.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130904484915528830" remote="130904484910000000" Dst="2" />
 <file name="da_catalog_insertCheck.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130903597026935925" remote="130903597020000000" Dst="-1" />
 <file name="da_catalog_insertPICheck.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="129498065630000000" remote="129498065630000000" Dst="2" />
+<file name="da_catalog_updateDatasetRecord.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130106128760000000" remote="130106128760000000" Dst="2" />
+<file name="da_catalog_updateDatasetRecordCheck.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130106127890000000" remote="130106127890000000" Dst="2" />
+<file name="da_catalog_updateDatasetRecord_bkup.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="129579191880000000" remote="129579191880000000" Dst="2" />
 </dwsync>
