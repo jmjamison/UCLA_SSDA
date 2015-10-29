@@ -2,9 +2,9 @@
 
      the only difference between the two is the stylesheet they use -->
 
-<script src="../index/SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
+<script src="../_includes/SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
 
-<link href="../index/SpryAssets/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css">
+<link href="../_includes/SpryAssets/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css">
 
 
 <ul id="MenuBar2" class="MenuBarHorizontal">
