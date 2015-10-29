@@ -23,7 +23,7 @@
 <!--[if lte IE 8]>
 <link type="text/css" rel="stylesheet" href="https://www.library.ucla.edu/sites/default/files/css/css_xQJJNTpoUbrt7VMvqdSHpCab2KmnKq0up7WDdRliOt0.css" media="all" />
 <![endif] -->
-
+<!--
 <script src="../UCLA_SSDA/ga.js" async type="text/javascript"></script>
 <script src="../UCLA_SSDA/jquery_007.js"></script>
 <script src="UCLA_SSDA/jquery_004.js"></script>
@@ -45,12 +45,13 @@
 <script src="UCLA_SSDA/tableheader.js"></script>
 <script src="UCLA_SSDA/uclalib_location.js"></script>
 <script src="UCLA_SSDA/panels_tabs.js"></script>
-<script src="UCLA_SSDA/googleanalytics.js"></script>
-<script>var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-32672693-1"]);_gaq.push(["_gat._anonymizeIp"]);// Sets the Google Analytics Site Speed sampling rate to 100%.
+<script src="UCLA_SSDA/googleanalytics.js"></script><br> -->
+<!-- Library google analytics script -->
+<!--<script>var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-32672693-1"]);_gaq.push(["_gat._anonymizeIp"]);// Sets the Google Analytics Site Speed sampling rate to 100%.
 _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();</script>
 <script src="../UCLA_SSDA/site_alert.js"></script>
 <script src="../UCLA_SSDA/uclalib-omega.js"></script>
-<!--<script>jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","fancybox":{"options":{"autoSize":0,"autoResize":0,"autoCenter":0,"fitToView":0,"mouseWheel":0,"loop":0,"openEffect":"elastic","closeEffect":"elastic","openOpacity":0,"closeOpacity":0},"helpers":{"title":{"position":"top"},"overlay_enabled":0,"overlay":null,"thumbs":{"width":"","height":"","position":"top"}},"callbacks":{"beforeShow":"fancybox_beforeshow","afterShow":"fancybox_aftershow"}},"tipsy":{"custom_selectors":[{"selector":".tipsy","options":{"fade":1,"gravity":"w","delayIn":0,"delayOut":0,"trigger":"hover","opacity":"0.8","offset":0,"html":0,"tooltip_content":{"source":"attribute","selector":"title"}}},{"selector":".views-tooltip","options":{"fade":1,"gravity":"autoNS","delayIn":0,"delayOut":0,"trigger":"hover","opacity":"0.8","offset":0,"html":1,"tooltip_content":{"source":"attribute","selector":"tooltip-content"}}}]},"locationNid":{"nid":"1381"},"panelsTabs":{"tabsID":["tabs-0-below_main_left"]},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip"},"tableHeaderOffset":"Drupal.navbar.height"});</script> -->
+ --><!--<script>jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","fancybox":{"options":{"autoSize":0,"autoResize":0,"autoCenter":0,"fitToView":0,"mouseWheel":0,"loop":0,"openEffect":"elastic","closeEffect":"elastic","openOpacity":0,"closeOpacity":0},"helpers":{"title":{"position":"top"},"overlay_enabled":0,"overlay":null,"thumbs":{"width":"","height":"","position":"top"}},"callbacks":{"beforeShow":"fancybox_beforeshow","afterShow":"fancybox_aftershow"}},"tipsy":{"custom_selectors":[{"selector":".tipsy","options":{"fade":1,"gravity":"w","delayIn":0,"delayOut":0,"trigger":"hover","opacity":"0.8","offset":0,"html":0,"tooltip_content":{"source":"attribute","selector":"title"}}},{"selector":".views-tooltip","options":{"fade":1,"gravity":"autoNS","delayIn":0,"delayOut":0,"trigger":"hover","opacity":"0.8","offset":0,"html":1,"tooltip_content":{"source":"attribute","selector":"tooltip-content"}}}]},"locationNid":{"nid":"1381"},"panelsTabs":{"tabsID":["tabs-0-below_main_left"]},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip"},"tableHeaderOffset":"Drupal.navbar.height"});</script> -->
 <style type="text/css">.fancybox-margin{margin-right:17px;}</style><script>try {  for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){    var lastpass_f = document.forms[lastpass_iter];    if(typeof(lastpass_f.lpsubmitorig)=="undefined"){      if (typeof(lastpass_f.submit) == "function") {        lastpass_f.lpsubmitorig = lastpass_f.submit;        lastpass_f.submit = function(){          var form = this;          try {            if (document.documentElement && 'createEvent' in document)            {              var forms = document.getElementsByTagName('form');              for (var i=0 ; i<forms.length ; ++i)                if (forms[i]==form)                {                  var element = document.createElement('lpformsubmitdataelement');                  element.setAttribute('formnum',i);                  element.setAttribute('from','submithook');                  document.documentElement.appendChild(element);                  var evt = document.createEvent('Events');                  evt.initEvent('lpformsubmit',true,false);                  element.dispatchEvent(evt);                  break;                }            }          } catch (e) {}          try {            form.lpsubmitorig();          } catch (e) {}        }      }    }  }} catch (e) {}</script>
 <!-- TemplateBeginEditable name="head" -->
 <!-- TemplateEndEditable -->
@@ -126,7 +127,10 @@ _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(funct
   
   <div class="pane-content">
  <ul class="links primary-links">
- <li><a href="https://www.library.ucla.edu/" title=""><img src="../UCLA_SSDA/home_black.png" alt="Home" width="23" height="19" align="absbottom"></a></li>
+ <li><a href="https://www.library.ucla.edu/" title="">
+  <img src="../UCLA_SSDA/home_ucla_blue.png" width="32" height="27" 
+onmouseover="this.src = '../UCLA_SSDA/home_black_original.png'" 
+onmouseout="this.src='../UCLA_SSDA/home_ucla_blue_03.png'" border="0px"></a></li>
 <li class="menu-2649"><a href="https://www.library.ucla.edu/search">Search</a></li>
 <li class="menu-2090"><a href="https://www.library.ucla.edu/support">Research &amp; Teaching Support</a></li>
 <li class="menu-721 active-trail"><a href="https://www.library.ucla.edu/locations" title="" class="active-trail">Locations</a></li>
@@ -184,7 +188,8 @@ _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(funct
         <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
       
   <div class="views-field views-field-field-location-map-link">      
-<div class="field-content"><a href="http://maps.ucla.edu/campus/?z=14&amp;cpnt=-118.44163%2C34.07375"><img src="../UCLA_SSDA/map_icon_gray.png" width="12" height="16" align="absbottom"></a></div>  </div>  </div>
+<div class="field-content"><a href="http://maps.ucla.edu/campus/?z=14&amp;cpnt=-118.44163%2C34.07375"><img src="../UCLA_SSDA/map_icon_gray.png" width="16" height="22" align="absbottom">
+</a></div>  </div>  </div>
     </div>
   
   
@@ -309,16 +314,16 @@ _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(funct
   
   <div class="l-region l-region--main-column">
   
-    
-
+   
+<!-- data archive  menubar - library in-house version  -->
 <?php  
 	include("../_includes/SSDA_menubar_libraryInHouse.php");  
 //
 // SSDA_menubar.php has the menu code for da_catalog, da_catalog_fielder(fielder collection) and 'archive reources'
 //
 ?>
-
-
+<!-- data archive google analytics tracking script -->
+<?php include_once("../_includes/analyticstracking.php") ?>
 
   
           <div class="l-region l-region--main">
@@ -335,9 +340,13 @@ _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(funct
 
 <!---------------------------------------------------------------------------------------------- -->
 <!--ssda page code goes here -->
-<?php
-	
-	 //error_reporting(E_ALL);
+<!-- -->
+<!-- -->
+<H2 align="center">Titles That Begin With The Letter...</H2><br>
+
+ <?php
+ 
+ //error_reporting(E_ALL);
 //ini_set('display_errors', 1);
 
 	$currentHTTP = "http://data-archive.library.ucla.edu/da_catalog/";	
@@ -358,28 +367,13 @@ define("DB_NAME", $db_name);
 	// echo 'class.' . $class_name . '.php<br>';
 	//include 'class.' . $class_name . '.php';
 //}
+	
+// sql query statement
+$query = "select distinct ucase(left(archive_db.title.Title,1)) as index_letter, count(*) as index_letter_count from archive_db.title where ucase(left(archive_db.title.Title,1)) regexp '^[A-Za-z]' and archive_db.title.Restricted != '*' group by index_letter";
 
-	 
-	// check, if NOT set 
-	if (!isset($_GET['indexTerm'])) { 
-		echo "<span style='margin-left: 0; text-align: center; background-color: powderblue;'><a href='mobindex.html'>No citations selected. Return to catalog.</a></span><br>";
-		die ("No citations selected.");
-		
-		}
-		
-	// get the study number
+// echo "<br>$query<br>";
 
-	
-	 
-	$indexTerm =  $_GET['indexTerm']; 
-	
-	// sql query statement
-// $query = "select title.Title, title.StudyNum from da_catalog.title where title.Title regexp '^[".$index_letter."]' and title.Restricted != '*' order by title.Title";
-//$query = "select title.Title, title.StudyNum, shfull.subject FROM (title INNER JOIN shcode ON title.tisort = shcode.tisort) INNER JOIN shfull ON shcode.subjectcode = shfull.subjectcode WHERE (shfull.subject ='".$indexTerm."') ORDER BY shfull.subject";
-//  NOTE: previous old query did not exclude the Restricted items, the new belwo query excludes item marked Restricted
-$query = "select title.Title, title.StudyNum, shfull.subject FROM (title INNER JOIN shcode ON title.tisort = shcode.tisort) INNER JOIN shfull ON shcode.subjectcode = shfull.subjectcode WHERE (shfull.subject ='".$indexTerm."') and title.Restricted <> '*'  ORDER BY title.Title";
-	
-	// class.Database.php  is the class to make PDO connections
+// class.Database.php  is the class to make PDO connections
 // initialize new db connection instance
 $db = new Database();	 
 	
@@ -394,35 +388,42 @@ if (!$result) {
 		}  // else {  echo "Successfully queried the database.<br>";   }  // for debugging
 
 
-	 
-	
-	echo "<H2>$indexTerm</H2><br>";
-
-
-		 
-	
-	echo "<ul>";
-
+		echo "<table id='alphaList' align='center'> ";
+		echo "<tr>";  // start a row
+		
+		$itemCount = 1;	  // count off the number of items in the alpha-block, 5 letters across
+		
+		
 		while ($row = $db->getRow())  {
-		// Non-PDO code ---------------------
-		//while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 			
-			$title = $row[ "Title" ];
-			$studynum = $row[ "StudyNum" ];
-			//echo "<li class='alphaTitleList'><A HREF= '" . $currentHTTP . "da_catalog_titleRecord.php?studynumber=$studynum&title=$title'>$title</a></li>";
-			echo "<li class='alphaTitleList'><A HREF= '" . $currentHTTP . "da_catalog_titleRecord.php?studynumber=$studynum'>$title</a></li>";
+			$index_letter = $row[ "index_letter" ];
+			$index_letter_count = $row["index_letter_count"];
+			echo "<td><A HREF= '" . $currentHTTP . "da_catalog_titlesThatBeginWith.php?index_letter=$index_letter'>$index_letter</a>&nbsp;($index_letter_count&nbsp;titles)</td>";
 			
+			if ($itemCount < 5) {			
 			
+			$itemCount++;
+			}
+			
+			else { 
+				
+				echo "</tr>";       // end the row
+				echo "<tr>";		// start a new row
+				
+				$itemCount = 1;
+			} 
 		}
-	echo "</ul>";
+	echo "</table><br>";
 	
 	// _destructor class closes connection
 	// close the connection		
 	//$PDO_connection = null;
-	
-	?>  <!--end container -->
+		
+	?>
+</div>  <!--end content -->
+</div>  <!--end container -->  <!--end container -->
 <!---------------------------------------------------------------------------------------------- -->
-
+<!--  end of da_catalog content -->
 
 
 </div></div></div>  </div>

@@ -46,10 +46,10 @@
 <script src="UCLA_SSDA/uclalib_location.js"></script>
 <script src="UCLA_SSDA/panels_tabs.js"></script>
 <script src="UCLA_SSDA/googleanalytics.js"></script>
-<script>var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-32672693-1"]);_gaq.push(["_gat._anonymizeIp"]);// Sets the Google Analytics Site Speed sampling rate to 100%.
+<!--<script>var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-32672693-1"]);_gaq.push(["_gat._anonymizeIp"]);// Sets the Google Analytics Site Speed sampling rate to 100%.
 _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();</script>
 <script src="../UCLA_SSDA/site_alert.js"></script>
-<script src="../UCLA_SSDA/uclalib-omega.js"></script>
+<script src="../UCLA_SSDA/uclalib-omega.js"></script> -->
 <!--<script>jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","fancybox":{"options":{"autoSize":0,"autoResize":0,"autoCenter":0,"fitToView":0,"mouseWheel":0,"loop":0,"openEffect":"elastic","closeEffect":"elastic","openOpacity":0,"closeOpacity":0},"helpers":{"title":{"position":"top"},"overlay_enabled":0,"overlay":null,"thumbs":{"width":"","height":"","position":"top"}},"callbacks":{"beforeShow":"fancybox_beforeshow","afterShow":"fancybox_aftershow"}},"tipsy":{"custom_selectors":[{"selector":".tipsy","options":{"fade":1,"gravity":"w","delayIn":0,"delayOut":0,"trigger":"hover","opacity":"0.8","offset":0,"html":0,"tooltip_content":{"source":"attribute","selector":"title"}}},{"selector":".views-tooltip","options":{"fade":1,"gravity":"autoNS","delayIn":0,"delayOut":0,"trigger":"hover","opacity":"0.8","offset":0,"html":1,"tooltip_content":{"source":"attribute","selector":"tooltip-content"}}}]},"locationNid":{"nid":"1381"},"panelsTabs":{"tabsID":["tabs-0-below_main_left"]},"googleanalytics":{"trackOutbound":1,"trackMailto":1,"trackDownload":1,"trackDownloadExtensions":"7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip"},"tableHeaderOffset":"Drupal.navbar.height"});</script> -->
 <style type="text/css">.fancybox-margin{margin-right:17px;}</style><script>try {  for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){    var lastpass_f = document.forms[lastpass_iter];    if(typeof(lastpass_f.lpsubmitorig)=="undefined"){      if (typeof(lastpass_f.submit) == "function") {        lastpass_f.lpsubmitorig = lastpass_f.submit;        lastpass_f.submit = function(){          var form = this;          try {            if (document.documentElement && 'createEvent' in document)            {              var forms = document.getElementsByTagName('form');              for (var i=0 ; i<forms.length ; ++i)                if (forms[i]==form)                {                  var element = document.createElement('lpformsubmitdataelement');                  element.setAttribute('formnum',i);                  element.setAttribute('from','submithook');                  document.documentElement.appendChild(element);                  var evt = document.createEvent('Events');                  evt.initEvent('lpformsubmit',true,false);                  element.dispatchEvent(evt);                  break;                }            }          } catch (e) {}          try {            form.lpsubmitorig();          } catch (e) {}        }      }    }  }} catch (e) {}</script>
 <!-- TemplateBeginEditable name="head" -->
@@ -99,7 +99,7 @@ _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(funct
   
   <div class="pane-content">
         <div class="header-search-form-wrapper">
-      <form class="header-search-form" action="/site-search" method="get" accept-charset="UTF-8">
+      <form class="header-search-form" action="https://www.library.ucla.edu/site-search" method="get" accept-charset="UTF-8">
         <div class="form-wrapper">
           <div class="form-item form-type-textfield">
             <input class="form-text" id="" name="search_query" size="15" maxlength="128" placeholder="Site Search" type="text">
@@ -126,7 +126,7 @@ _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(funct
   
   <div class="pane-content">
  <ul class="links primary-links">
- <li><a href="https://www.library.ucla.edu/" title=""><img src="../UCLA_SSDA/home_black.png" alt="Home" width="23" height="19" align="absbottom"></a></li>
+ <li><a href="https://www.library.ucla.edu/" title=""><img src="../UCLA_SSDA/home_ucla_blue.png" width="23" height="19" border="5" hspace="0" vspace="5" align="absbottom"></a></li>
 <li class="menu-2649"><a href="https://www.library.ucla.edu/search">Search</a></li>
 <li class="menu-2090"><a href="https://www.library.ucla.edu/support">Research &amp; Teaching Support</a></li>
 <li class="menu-721 active-trail"><a href="https://www.library.ucla.edu/locations" title="" class="active-trail">Locations</a></li>
@@ -310,15 +310,15 @@ _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(funct
   <div class="l-region l-region--main-column">
   
     
-
+<!-- data archive  menubar - library in-house version  -->
 <?php  
 	include("../_includes/SSDA_menubar_libraryInHouse.php");  
 //
 // SSDA_menubar.php has the menu code for da_catalog, da_catalog_fielder(fielder collection) and 'archive reources'
 //
 ?>
-
-
+<!-- data archive google analytics tracking script -->
+<?php include_once("../_includes/analyticstracking.php") ?>
 
   
           <div class="l-region l-region--main">

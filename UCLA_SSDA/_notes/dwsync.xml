@@ -5,7 +5,7 @@
 <file name="css_sUM0nyo9pNGlCdw1gax7lwAzC91Cm8ozCNu0wgokPlA.css" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130904565730000000" remote="130904565730000000" Dst="2" />
 <file name="css_YIbCDBnX0Z7JXDuHxafQHQtSXISPFibkHk2DxLc1A-k.css" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130904565730000000" remote="130904565730000000" Dst="2" />
 <file name="css_28eC3-nofHM94fXGfcEbKDw6rxOILQLQUQ1n7jWokXA.css" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130904565730000000" remote="130904565730000000" Dst="2" />
-<file name="css_G1U0GbL4G9Ns4f81MGIYs0iiPZRdSM2TQN4zvD2VZKg.css" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130904565730000000" remote="130904565730000000" Dst="2" />
+<file name="css_G1U0GbL4G9Ns4f81MGIYs0iiPZRdSM2TQN4zvD2VZKg.css" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906339210000000" remote="130906339210000000" Dst="2" />
 <file name="ga.js" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130904565760000000" remote="130904565760000000" Dst="2" />
 <file name="jquery_007.js" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130904565730000000" remote="130904565730000000" Dst="2" />
 <file name="jquery_004.js" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130904565730000000" remote="130904565730000000" Dst="2" />
@@ -37,5 +37,7 @@
 <file name="archiveImage_3.jpg" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130904565760000000" remote="130904565760000000" Dst="2" />
 <file name="archiveImage_4.jpg" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130904565760000000" remote="130904565760000000" Dst="2" />
 <file name="home_black.png" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130905434085433798" remote="130905434080000000" Dst="2" />
-<file name="map_icon_gray.png" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130905425574073798" remote="130905425570000000" Dst="2" />
+<file name="map_icon_gray.png" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906223538319276" remote="130906223530000000" Dst="2" />
+<file name="home_ucla_blue_03.png" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130905416933233798" remote="130905416930000000" Dst="2" />
+<file name="home_ucla_blue.png" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906223513982964" remote="130906223510000000" Dst="2" />
 </dwsync>
