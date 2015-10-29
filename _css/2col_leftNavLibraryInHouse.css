@@ -86,7 +86,7 @@ table#alphaList td{
 	padding: 6px 6px 6px 12px;
 	text-align: center;
 }
-table#alphaList td:first-letter { font-size: 32px; }
+table#alphaList td:first-letter { font-size: 24px; }
 
 li.alphaTitleList {
 	list-style-type: disc;

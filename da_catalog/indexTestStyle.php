@@ -335,46 +335,92 @@ _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(funct
 
 <!---------------------------------------------------------------------------------------------- -->
 <!--ssda page code goes here -->
-<div id="container" style="padding: 30px 50px 30px 50px;">
-
-<?php  
-
-// error_reporting(E_ALL);
-// ini_set('display_errors', 1);
+<?php
+	
+	 //error_reporting(E_ALL);
+//ini_set('display_errors', 1);
 
 	$currentHTTP = "http://data-archive.library.ucla.edu/da_catalog/";	
 	//SSDA_menubar.php has the menu code for da_catalog, da_catalog_fielder(fielder collection) and 'archive reources'
 	include("../_includes/SSDA_librarydatabase.php");  //SSDA_menubar.php has the menu code for da_catalog, da_catalog_fielder(fielder collection) and 'archive reources'
 	// class for database connections
 	include "../_classes/class.Database.php";
-//
-// SSDA_menubar.php has the menu code for da_catalog, da_catalog_fielder(fielder collection) and 'archive reources'
-//
+// Define configuration
+// define info pulled from SSDA_librarydatabase.php
+define("DB_HOST", $db_host);
+define("DB_PORT", $db_port);
+define("DB_USER", $db_username);
+define("DB_PASS", $db_password);
+define("DB_NAME", $db_name);
+	
+// should be adding "class.Database.php";	
+//function __autoload($class_name) {
+	// echo 'class.' . $class_name . '.php<br>';
+	//include 'class.' . $class_name . '.php';
+//}
+
+	 
+	// check, if NOT set 
+	if (!isset($_GET['indexTerm'])) { 
+		echo "<span style='margin-left: 0; text-align: center; background-color: powderblue;'><a href='mobindex.html'>No citations selected. Return to catalog.</a></span><br>";
+		die ("No citations selected.");
+		
+		}
+		
+	// get the study number
+
+	
+	 
+	$indexTerm =  $_GET['indexTerm']; 
+	
+	// sql query statement
+// $query = "select title.Title, title.StudyNum from da_catalog.title where title.Title regexp '^[".$index_letter."]' and title.Restricted != '*' order by title.Title";
+//$query = "select title.Title, title.StudyNum, shfull.subject FROM (title INNER JOIN shcode ON title.tisort = shcode.tisort) INNER JOIN shfull ON shcode.subjectcode = shfull.subjectcode WHERE (shfull.subject ='".$indexTerm."') ORDER BY shfull.subject";
+//  NOTE: previous old query did not exclude the Restricted items, the new belwo query excludes item marked Restricted
+$query = "select title.Title, title.StudyNum, shfull.subject FROM (title INNER JOIN shcode ON title.tisort = shcode.tisort) INNER JOIN shfull ON shcode.subjectcode = shfull.subjectcode WHERE (shfull.subject ='".$indexTerm."') and title.Restricted <> '*'  ORDER BY title.Title";
+	
+	// class.Database.php  is the class to make PDO connections
+// initialize new db connection instance
+$db = new Database();	 
+	
+// prepare query
+$db->prepareQuery($query);   	
+// execute query
+$result = $db->executeQuery();	 
+	
+//$result = $db->resultset();  // execute the query
+if (!$result) { 
+		die ("Could not query the database: <br />"); 		
+		}  // else {  echo "Successfully queried the database.<br>";   }  // for debugging
 
 
-//
-
-//?>
-
-<!--<div id="content" style="padding: 30px 50px 30px 50px;"> -->
+	 
+	
+	echo "<H2>$indexTerm</H2><br>";
 
 
+		 
+	
+	echo "<ul>";
 
-
- <!-- <h1 align="center" style="color: #006699;">Archive Catalog</h1> -->
-  
-  <P>This is the catalog of <B style="color: #006699;">all</B> studies at the Data Archives. You 
-    may <B style="color: #006699;">Search</b> by broad <B style="color: #006699;"><a href="da_catalog_index.php" title="Search by index terms">Index</a></b> terms that we use to categorize 
-    the collection; by words in study <B style="color: #006699;"><a href="da_catalog_titles.php" title="Search by study titles">Titles</a></b>; by the most recently 
-    received studies or <B style="color: #006699;">Updates</b>; or you can do a keyword <B style="color: #006699;">Search</b>. 
-    A keyword <B style="color: #006699;">Search</b> will look for words that appear anywhere in 
-    the information about a study. You should also search the <a href="http://www.icpsr.umich.edu/access/index.html">ICPSR</a> 
-    catalog, where you can narrow your search and find studies more precisely. 
-    For questions, please contact the <a href="mailto:libbie@ucla.edu">Archive</a>.</P>
-  
- <h3 align="center"><A HREF = "da_catalog_index.php">index</A>&nbsp;&bull;&nbsp;<A HREF = "da_catalog_titles.php">titles</A>&nbsp;&bull;&nbsp;<A HREF = "da_catalog_studynumbers.php">study numbers</A> &nbsp;&bull;&nbsp;<A HREF = "da_catalog_search.php">keyword/subject search</A>&nbsp;&bull;&nbsp;<A HREF = "https://dataverse.harvard.edu/dataverse/ssda_ucla">Harvard Dataverse</A></h3>
-
-</div>  <!--end container -->
+		while ($row = $db->getRow())  {
+		// Non-PDO code ---------------------
+		//while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+			
+			$title = $row[ "Title" ];
+			$studynum = $row[ "StudyNum" ];
+			//echo "<li class='alphaTitleList'><A HREF= '" . $currentHTTP . "da_catalog_titleRecord.php?studynumber=$studynum&title=$title'>$title</a></li>";
+			echo "<li class='alphaTitleList'><A HREF= '" . $currentHTTP . "da_catalog_titleRecord.php?studynumber=$studynum'>$title</a></li>";
+			
+			
+		}
+	echo "</ul>";
+	
+	// _destructor class closes connection
+	// close the connection		
+	//$PDO_connection = null;
+	
+	?>  <!--end container -->
 <!---------------------------------------------------------------------------------------------- -->
 
 
