@@ -73,7 +73,7 @@ Election Studies</strong></a> On March 6, 2001, the Secretary of Commerce decide
 
         <br>
 
-<!--<p> <a href="../lhsccs/chinaweb.html"><strong>Life  Histories and Social Change in Contemporary China, 1996</strong></a> As part of  the project &quot;Life Histories and Social Change in Contemporary China,&quot;  a national probability sample survey was conducted in the People's Republic of China during June-October1996. Interviews were completed for 6,090  Chinese adults, aged 20-69 (3,087 urban residents and 3,003 rural residents).  As part of the fieldwork operation for the rural survey, a survey of 383 village leaders was also carried out, using the same questionnaire. The   project was initiated in 1994 by Donald J. Treiman, UCLA, Ivan Szelenyi,  then at UCLA and now at Yale, and Andrew Walder, then at Harvard and now at Stanford University, in cooperation with staff of the Department of Sociology, People's University, Beijing.</p> -->
+<p> <a href="../lhsccs/chinaweb.html"><strong>Life  Histories and Social Change in Contemporary China, 1996</strong></a> As part of  the project &quot;Life Histories and Social Change in Contemporary China,&quot;  a national probability sample survey was conducted in the People's Republic of China during June-October1996. Interviews were completed for 6,090  Chinese adults, aged 20-69 (3,087 urban residents and 3,003 rural residents).  As part of the fieldwork operation for the rural survey, a survey of 383 village leaders was also carried out, using the same questionnaire. The   project was initiated in 1994 by Donald J. Treiman, UCLA, Ivan Szelenyi,  then at UCLA and now at Yale, and Andrew Walder, then at Harvard and now at Stanford University, in cooperation with staff of the Department of Sociology, People's University, Beijing.</p>
 
      
 
@@ -99,10 +99,10 @@ Election Studies</strong></a> On March 6, 2001, the Secretary of Commerce decide
 
           Center for Public Opinion Research </strong></a> &quot;The Roper Center for Public Opinion Research is one of the world's leading archives of social science   data, specializing in data from surveys of public opinion. The data held  by the Roper Center range from the 1930s, when survey research was in   its infancy, to the present. Most of the data are from the United States,but over 50 nations are represented.&quot; UCLA students, faculty and  staff can search for entire polls or can search a question-level database  called <a href="http://www.ropercenter.uconn.edu/data_access/ipoll/ipoll.html">iPoll</a>.</p><br>
 
-       <!-- <p><a href="../SSEE/SSEE.home.html"><strong>Social Stratification in Eastern Europe 
+      <p><a href="../SSEE/SSEE.home.html"><strong>Social Stratification in Eastern Europe 
 
           After 1989</strong></a> &nbsp;&quot;As part of the project "Social Stratification in Eastern Europe after 1989," sample surveys were conducted in 1993 and 1994 in six countries: Bulgaria, the Czech Republic, Hungary, Poland, Russia, and Slovakia. Using a questionnaire common to all countries, national probability samples of approximately 5,000 members of the adult population were surveyed in five of the six countries in 1993. The data and documentation files are available to any interested researcher. </p><br>
- -->
+
     
 
         <p><a href="http://www.socio.com/edl.htm"><strong>Sociometrics 
