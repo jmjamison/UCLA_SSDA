@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="index.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130901205021147747" remote="130901205020000000" />
-<file name="da_catalog_titles.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="129618101850000000" remote="129618101850000000" />
-<file name="class.Database.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130320391610000000" remote="130320391610000000" />
-<file name="demoTest2.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130318824840000000" remote="130318824840000000" />
-<file name="SSDA_librarydatabase.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130888123220000000" remote="130888123220000000" />
-<file name="fielder_titles.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130901206125048126" remote="130901206120000000" />
-<file name="fielder_subjects.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130898525820000000" remote="130898525820000000" />
-<file name="fielder_index.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130901209345580147" remote="130901209340000000" />
-<file name="fielder_titlesThatBeginWith.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130901206356031222" remote="130901206350000000" />
-<file name="fielder_titleRecord.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130901212556391196" remote="130901212550000000" />
-<file name="fielder_byAuthorList.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130901207947930396" remote="130901207940000000" />
-<file name="fielder_bySubjectList.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130901209440000000" remote="130901209440000000" />
-<file name="fielder_authors.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130901207617087315" remote="130901207610000000" />
-<file name="fielder_authorByAlpha.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130901207271242734" remote="130901207270000000" />
-<file name="fielder_search.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130901103850000000" remote="130901103850000000" />
-<file name="fielder_SearchResults.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130901105550000000" remote="130901105550000000" />
-<file name="resource.htm" server="//ad/webdev/SSDataArchivePHPWebSite/" local="129618105450000000" remote="129618105450000000" />
-<file name="class.simpleClass.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130572903150000000" remote="130572903150000000" />
-<file name="class.titleRecord.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130313698180000000" remote="130313698180000000" />
-<file name="class.testClass.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130318834700000000" remote="130318834700000000" />
+<file name="index.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906389398026128" remote="130906389390000000" Dst="2" />
+<file name="da_catalog_titles.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="129618101850000000" remote="129618101850000000" Dst="-1" />
+<file name="class.Database.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130320391610000000" remote="130320391610000000" Dst="-1" />
+<file name="demoTest2.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130318824840000000" remote="130318824840000000" Dst="-1" />
+<file name="SSDA_librarydatabase.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130888123220000000" remote="130888123220000000" Dst="2" />
+<file name="fielder_titles.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906408546920826" remote="130906408540000000" Dst="2" />
+<file name="fielder_subjects.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130898525820000000" remote="130898525820000000" Dst="-1" />
+<file name="fielder_index.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906388508597194" remote="130906388500000000" Dst="2" />
+<file name="fielder_titlesThatBeginWith.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906409664562579" remote="130906409660000000" Dst="2" />
+<file name="fielder_titleRecord.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906407367762922" remote="130906407360000000" Dst="2" />
+<file name="fielder_byAuthorList.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906386075713930" remote="130906386070000000" Dst="2" />
+<file name="fielder_bySubjectList.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906391698876190" remote="130906391690000000" Dst="2" />
+<file name="fielder_authors.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906380645971010" remote="130906380640000000" Dst="2" />
+<file name="fielder_authorByAlpha.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906385633429706" remote="130906385630000000" Dst="2" />
+<file name="fielder_search.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906398265152752" remote="130906398260000000" Dst="2" />
+<file name="fielder_SearchResults.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906402768583050" remote="130906402760000000" Dst="2" />
+<file name="resource.htm" server="//ad/webdev/SSDataArchivePHPWebSite/" local="129618105450000000" remote="129618105450000000" Dst="-1" />
+<file name="class.simpleClass.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130572903150000000" remote="130572903150000000" Dst="-1" />
+<file name="class.titleRecord.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130313698180000000" remote="130313698180000000" Dst="-1" />
+<file name="class.testClass.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130318834700000000" remote="130318834700000000" Dst="-1" />
 </dwsync>

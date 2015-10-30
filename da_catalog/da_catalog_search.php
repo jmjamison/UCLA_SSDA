@@ -26,26 +26,26 @@
 
 <script src="../UCLA_SSDA/ga.js" async type="text/javascript"></script>
 <script src="../UCLA_SSDA/jquery_007.js"></script>
-<script src="UCLA_SSDA/jquery_004.js"></script>
-<script src="UCLA_SSDA/drupal.js"></script>
-<script src="UCLA_SSDA/no-js.js"></script>
-<script src="UCLA_SSDA/jquery_005.js"></script>
-<script src="UCLA_SSDA/tipsy.js"></script>
-<script src="UCLA_SSDA/jquery.js"></script>
-<script src="UCLA_SSDA/jquery_006.js"></script>
-<script src="UCLA_SSDA/jquery_003.js"></script>
-<script src="UCLA_SSDA/debounce.js"></script>
-<script src="UCLA_SSDA/displace.js"></script> 
-<script src="UCLA_SSDA/navbar-tableheader.js"></script>
-<script src="UCLA_SSDA/uclalib_opening_hours.js"></script>
+<script src="../UCLA_SSDA/jquery_004.js"></script>
+<script src="../UCLA_SSDA/drupal.js"></script>
+<script src="../UCLA_SSDA/no-js.js"></script>
+<script src="../UCLA_SSDA/jquery_005.js"></script>
+<script src="../UCLA_SSDA/tipsy.js"></script>
+<script src="../UCLA_SSDA/jquery.js"></script>
+<script src="../UCLA_SSDA/jquery_006.js"></script>
+<script src="../UCLA_SSDA/jquery_003.js"></script>
+<script src="../UCLA_SSDA/debounce.js"></script>
+<script src="../UCLA_SSDA/displace.js"></script> 
+<script src="../UCLA_SSDA/navbar-tableheader.js"></script>
+<script src="../UCLA_SSDA/uclalib_opening_hours.js"></script>
 
-<script src="UCLA_SSDA/fancybox.js"></script>
-<script src="UCLA_SSDA/jquery_002.js"></script>
-<script src="UCLA_SSDA/linkitDialog.js"></script>
-<script src="UCLA_SSDA/tableheader.js"></script>
-<script src="UCLA_SSDA/uclalib_location.js"></script>
-<script src="UCLA_SSDA/panels_tabs.js"></script>
-<script src="UCLA_SSDA/googleanalytics.js"></script>
+<script src="../UCLA_SSDA/fancybox.js"></script>
+<script src="../UCLA_SSDA/jquery_002.js"></script>
+<script src="../UCLA_SSDA/linkitDialog.js"></script>
+<script src="../UCLA_SSDA/tableheader.js"></script>
+<script src="../UCLA_SSDA/uclalib_location.js"></script>
+<script src="../UCLA_SSDA/panels_tabs.js"></script>
+<script src="../UCLA_SSDA/googleanalytics.js"></script>
 <!--<script>var _gaq = _gaq || [];_gaq.push(["_setAccount", "UA-32672693-1"]);_gaq.push(["_gat._anonymizeIp"]);// Sets the Google Analytics Site Speed sampling rate to 100%.
 _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(function() {var ga = document.createElement("script");ga.type = "text/javascript";ga.async = true;ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(ga, s);})();</script>
 <script src="../UCLA_SSDA/site_alert.js"></script>
