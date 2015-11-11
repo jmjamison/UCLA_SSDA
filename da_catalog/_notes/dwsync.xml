@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="da_catalog_titles.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906411966802780" remote="130906411960000000" Dst="2" />
+<file name="da_catalog_titles.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130915907007235856" remote="130915907000000000" Dst="1" />
 <file name="ISSRDA_login.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130508112950000000" remote="130508112950000000" Dst="-1" />
-<file name="da_catalog_studynumbers.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906412931329223" remote="130906412930000000" Dst="2" />
-<file name="da_catalog_titlesThatBeginWith.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906411645740677" remote="130906411640000000" Dst="2" />
-<file name="da_catalog_titleRecord.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906412487894884" remote="130906412480000000" Dst="2" />
+<file name="da_catalog_studynumbers.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130915910321047204" remote="130915910320000000" Dst="1" />
+<file name="da_catalog_titlesThatBeginWith.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130915808383434462" remote="130915808380000000" Dst="1" />
+<file name="da_catalog_titleRecord.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130915909903575461" remote="130915909900000000" Dst="1" />
 <file name="dbopen.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130508112950000000" remote="130508112950000000" Dst="-1" />
 <file name="ssdaLocal_login.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130839012267342912" remote="130839012260000000" Dst="-1" />
-<file name="da_catalog_index.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906413961212201" remote="130906413960000000" Dst="2" />
-<file name="da_catalog_titlesByIndexTerm.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906411403216427" remote="130906411400000000" Dst="2" />
-<file name="da_catalog_search.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906413715817664" remote="130906413710000000" Dst="2" />
-<file name="da_catalog_SearchResults.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906413237239811" remote="130906413230000000" Dst="2" />
-<file name="da_catalog_studyNumberList.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130898602990000000" remote="130898602990000000" Dst="2" />
+<file name="da_catalog_index.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130915912272112291" remote="130915912270000000" Dst="1" />
+<file name="da_catalog_titlesByIndexTerm.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130915906581693306" remote="130915906580000000" Dst="1" />
+<file name="da_catalog_search.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130915911856510735" remote="130915911850000000" Dst="1" />
+<file name="da_catalog_SearchResults.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130915911421157204" remote="130915911420000000" Dst="1" />
+<file name="da_catalog_studyNumberList.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130898602990000000" remote="130898602990000000" Dst="1" />
 <file name="UCLAonly.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130051035810000000" remote="130051035810000000" Dst="-1" />
 <file name="da_catalog_edit_test.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="129443590030000000" remote="129443590030000000" Dst="-1" />
 <file name="da_catalog_fileChksumtRpt.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130671370840000000" remote="130671370840000000" Dst="2" />
@@ -20,8 +20,8 @@
 <file name="demoTest2.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130899406528273041" remote="130899406520000000" Dst="-1" />
 <file name="da_catalog_titles2.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130901005526083808" remote="130901005520000000" Dst="-1" />
 <file name="da_catalog_titleRecord2.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130901074406653485" remote="130901074400000000" Dst="-1" />
-<file name="index.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906410502676382" remote="130906410500000000" Dst="2" />
+<file name="index.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130916722302012227" remote="130916722300000000" Dst="1" />
 <file name="indexTestStyle.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906211247034922" remote="130906211240000000" Dst="2" />
 <file name="rollTest.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130906198810000000" remote="130906198810000000" Dst="2" />
-<file name="da_catalog_titleRecordBKUP.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130898601040000000" remote="130898601040000000" Dst="2" />
+<file name="da_catalog_titleRecordBKUP.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130898601040000000" remote="130898601040000000" Dst="1" />
 </dwsync>

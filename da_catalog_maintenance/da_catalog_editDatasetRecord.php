@@ -27,17 +27,18 @@
 			$studynumber = $_SESSION['studynumber'];
 	else 
 			$studynumber = ''; 
-		echo "studynumber: " . $studynumber;
+		echo "studynumber: " . $studynumber . "<br>";
 		 	
 	
 	// studyNumberShort is studynumber without V[[n]. Used for connecting to citations and wevlinks
 	// for example: $citenum = $studyNumShort . "_" . $studypart;
 	$studynumArray = explode("V",$studynumber);
 	$studyNumShort = $studynumArray[0];	
-		
 	
+	echo "studynumber short: " .$studyNumShort . "<br>";
 	
-	$datasetRecordListCount = null;
+	$datasetRecord = array();   // holds the record - the title, sub# and restricted y/n	
+	$datasetRecordListCount = null;   // count of the records
 	
 	
 	$queryDatasetRecord="SELECT fileinfo.*, fileinfo.Restricted AS restricted_file, fileinfo.ID as datasetID, cite.ID as citeID, cite.citenum, cite.cite as cite_text, cite.subsort as cite_subsort, wwwlink.wwwlink, wwwlink.wwwtext, wwwlink.WWWcode, wwwlink.dtafile FROM (fileinfo LEFT JOIN cite on fileinfo.Cite = cite.citenum) LEFT JOIN wwwlink on fileinfo.DTAfile = wwwlink.dtafile WHERE fileinfo.StudyNum='" . $studynumber . "' ORDER BY fileinfo.StudyPart";
@@ -71,6 +72,7 @@
 			//$datasetRecord = array();  // record - the title, sub# and restricted y/n		
 			
 			$datasetRecord = array();   // holds the record - the title, sub# and restricted y/n	
+			//echo print_r($datasetRecord) . "<br>";
 			
 			$row_index = 0;   
 			while ($row = $PDO_query->fetch(PDO::FETCH_ASSOC))  {
@@ -114,7 +116,8 @@
 			
 			//print_r($datasetRecord);
 			$datasetRecordListCount = count($datasetRecord);	
-			echo "<br>" . $datasetRecordListCount . "</br>";
+			echo "<br>Dataset record list count = " . $datasetRecordListCount . "</br>";
+			//echo print_r($datasetRecord) . "<br>";
 			
 			
 					
@@ -130,16 +133,14 @@
 			$studynumber = $_SESSION['studynumber'];
 	else 
 			$studynumber = ''; 
+			
 	if (isset($_SESSION['datasetRecordListCount']))
 			$datasetRecordListCount = $_SESSION['datasetRecordListCount'];
 	else 
-			$datasetRecordListCount = ''; 
+			$datasetRecordListCount = 0;
 	
-	
-		
-	
-	
-	
+	  $datasetRecordListCount = count($datasetRecord);	
+  echo "<br>Dataset record list count = " . $datasetRecordListCount . "</br>";
 		
 	echo "<br><strong>Studynumber:</strong> " . $studynumber . ";  <strong> Dataset record count:</strong> " . $datasetRecordListCount . "<br>";
 	
@@ -323,7 +324,9 @@ function addNewFileTypeEntry(arg1, arg2) {
   // test to see if there are ANY records attached
   //  if-no - informational message
   //  else-yes - display them
-  if (($datasetRecordListCount <= 0) AND (isset($studynumber))) {
+  $datasetRecordListCount = count($datasetRecord);	
+  echo "<br>Dataset record list count = " . $datasetRecordListCount . "</br>";
+  if (($datasetRecordListCount = 0) AND (isset($studynumber))) {
 	  
 	  echo "There are no records attached to Study# " . $studynumber . ".";
 	  

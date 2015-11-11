@@ -313,3 +313,30 @@ textboxstyle {
 	font-size: 14px;
 	background-color: #FF6;
 }
+/************** UCLA Library logo at bottom of pages  **************/
+/* 151109jmj:  added to match up to library pages */
+.uclaLibraryLogoSansSerif {
+	display: inline;
+	font-family: "Century Gothic", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+.uclaLibraryLogoSerif {
+	display: inline;
+	font-family: "MS Serif", "New York", serif;
+	font-weight:lighter;
+}
+.pane-bean-colophon-about h2 span {
+
+        display: inline-block;
+        text-indent: -119988px;
+        overflow: hidden;
+        text-align: left;
+		background-image:url(../_images/logo-colophon.png);
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        width: 150px;
+        height: 30px;
+        vertical-align: bottom;
+    }
+	
+	

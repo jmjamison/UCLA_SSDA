@@ -369,7 +369,7 @@ _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(funct
     the collection; by words in study <B style="color: #006699;"><a href="da_catalog_titles.php" title="Search by study titles">Titles</a></b>; by the most recently 
     received studies or <B style="color: #006699;">Updates</b>; or you can do a keyword <B style="color: #006699;">Search</b>. 
     A keyword <B style="color: #006699;">Search</b> will look for words that appear anywhere in 
-    the information about a study. You should also search the <a href="http://www.icpsr.umich.edu/access/index.html">ICPSR</a> 
+    the information about a study. You should also search the <a href="http://www.icpsr.umich.edu/icpsrweb/ICPSR/">ICPSR</a> 
     catalog, where you can narrow your search and find studies more precisely. 
     For questions, please contact the <a href="mailto:libbie@ucla.edu">Archive</a>.</P>
   
@@ -390,11 +390,9 @@ _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(funct
 
   
   </div>
-</div><div class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="tabs-0-below_main_left-2"><div class="panel-pane pane-bean-upcoming-events pane-bean-social-science-data-archive">
-  
-      
-  
-  <div class="pane-content">
+</div>
+<div class="ui-tabs-panel ui-widget-content ui-corner-bottom ui-tabs-hide" id="tabs-0-below_main_left-2"><div class="panel-pane pane-bean-upcoming-events pane-bean-social-science-data-archive">
+<div class="pane-content">
     <div class="entity entity-bean bean-upcoming-events clearfix">
 
   <div class="content">
@@ -407,10 +405,10 @@ _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(funct
 </div></div>      </div>
   </div>
 </div>
-</div>
+
 
   
-  </div>
+  
       </div>
 
                 </div>
@@ -427,8 +425,11 @@ _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(funct
     <div class="entity entity-bean bean-text-block clearfix">
 
   <div class="content">
-    <div class="field field--name-field-text-block field--type-text-long field--label-hidden"><div class="field__items"><div class="field__item even"><h2>
-	<span>UCLA Library</span></h2>
+    <div class="field field--name-field-text-block field--type-text-long field--label-hidden"><div class="field__items">
+    
+ <div class="field__item even">
+<img src="../_images/logo-colophon.png" alt="UCLA Library Logo" width="150" height="30">
+
 <p>The mission of the UCLA Library is to provide access to and delivery 
 of information resources to UCLA students, faculty, and staff in support
  of the research and instructional mission of the university. Relying on
@@ -436,10 +437,7 @@ of information resources to UCLA students, faculty, and staff in support
 capitalizes on appropriate technologies, forges effective partnerships 
 and aggressively promotes excellence.</p>
 </div></div></div>  </div>
-</div>
-  </div>
-
-  
+</div> </div>  
   </div>
   </div>
         <div class="l-region l-region--colophon-second">

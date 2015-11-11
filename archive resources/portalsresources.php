@@ -45,7 +45,7 @@ Election Studies</strong></a> On March 6, 2001, the Secretary of Commerce decide
 
  
 
-    <p><a href="../earthquake/erthqkstudies2.index.htm"><strong>Earthquake Survey Data from UCLA </strong></a> Earthquake related behavior is an important part of disaster research in California. Behavior during and immediately after earthquakes is influenced by a range of socioeconomic, situational, and social psychological factors. Here you will find survey data collected as part of research at the University of California , Los Angeles about the knowledge, attitudes and behaviors of individuals in responding to earthquakes.<br>
+    <p><a href="../earthquake/earthquakeStudies.htm"><strong>Earthquake Survey Data from UCLA </strong></a> Earthquake related behavior is an important part of disaster research in California. Behavior during and immediately after earthquakes is influenced by a range of socioeconomic, situational, and social psychological factors. Here you will find survey data collected as part of research at the University of California , Los Angeles about the knowledge, attitudes and behaviors of individuals in responding to earthquakes.<br>
 
 </p>
 
@@ -99,7 +99,7 @@ Election Studies</strong></a> On March 6, 2001, the Secretary of Commerce decide
 
           Center for Public Opinion Research </strong></a> &quot;The Roper Center for Public Opinion Research is one of the world's leading archives of social science   data, specializing in data from surveys of public opinion. The data held  by the Roper Center range from the 1930s, when survey research was in   its infancy, to the present. Most of the data are from the United States,but over 50 nations are represented.&quot; UCLA students, faculty and  staff can search for entire polls or can search a question-level database  called <a href="http://www.ropercenter.uconn.edu/data_access/ipoll/ipoll.html">iPoll</a>.</p><br>
 
-      <p><a href="../SSEE/SSEE.home.html"><strong>Social Stratification in Eastern Europe 
+      <p><a href="../SSEE/SSEE_home.html"><strong>Social Stratification in Eastern Europe 
 
           After 1989</strong></a> &nbsp;&quot;As part of the project "Social Stratification in Eastern Europe after 1989," sample surveys were conducted in 1993 and 1994 in six countries: Bulgaria, the Czech Republic, Hungary, Poland, Russia, and Slovakia. Using a questionnaire common to all countries, national probability samples of approximately 5,000 members of the adult population were surveyed in five of the six countries in 1993. The data and documentation files are available to any interested researcher. </p><br>
 

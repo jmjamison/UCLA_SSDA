@@ -416,8 +416,8 @@ _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(funct
     <div class="entity entity-bean bean-text-block clearfix">
 
   <div class="content">
-    <div class="field field--name-field-text-block field--type-text-long field--label-hidden"><div class="field__items"><div class="field__item even"><h2>
-	<span>UCLA Library</span></h2>
+    <div class="field field--name-field-text-block field--type-text-long field--label-hidden"><div class="field__items"><div class="field__item even">
+     <img src="../_images/logo-colophon.png" alt="UCLA Library Logo" width="150" height="30">
 <p>The mission of the UCLA Library is to provide access to and delivery 
 of information resources to UCLA students, faculty, and staff in support
  of the research and instructional mission of the university. Relying on
