@@ -1,6 +1,3 @@
-<?php
-	session_start();
-?>
 <html>
 <head><title>Data Archive Catalog: Edit Item Record(s)</title>
 <!--<link rel="stylesheet" href="2col_leftNav.css" type="text/css"> -->
@@ -14,39 +11,34 @@
 
 <?php
 		
-	//error_reporting(E_ALL ^ E_NOTICE);
+	//error_reporting(E_ALL ^ E_NOTICE);   datasetRecord 
   //error_reporting(0);
   
   	$currentHTTP = "http://data-archive.library.ucla.edu/da_catalog_maintenance/";	
 	include("../_includes/SSDA_librarydatabase_edit.php"); 
+	// below links to the test version of the database, for testing
+	//include("SSDA_librarydatabase_edit.php");  
 	
-	if (!empty($_POST['studynumber'])) {  // if NOT empty, ie it is set, query by studynumber for base record info
+	$datasetRecord = array();  // this will hold the record information
+
+	if (!empty($_POST['studynumber'])) {
 		$_SESSION['studynumber'] = $_POST['studynumber'];
 		$studynumber =  $_SESSION['studynumber'];
-		if (isset($_SESSION['studynumber']))
-			$studynumber = $_SESSION['studynumber'];
-	else 
-			$studynumber = ''; 
-		echo "studynumber: " . $studynumber . "<br>";
-		 	
+		echo "studynumber: " . $studynumber;
+		
 	
 	// studyNumberShort is studynumber without V[[n]. Used for connecting to citations and wevlinks
 	// for example: $citenum = $studyNumShort . "_" . $studypart;
 	$studynumArray = explode("V",$studynumber);
 	$studyNumShort = $studynumArray[0];	
 	
-	echo "studynumber short: " .$studyNumShort . "<br>";
-	
-	$datasetRecord = array();   // holds the record - the title, sub# and restricted y/n	
-	$datasetRecordListCount = null;   // count of the records
-	
-	
-	$queryDatasetRecord="SELECT fileinfo.*, fileinfo.Restricted AS restricted_file, fileinfo.ID as datasetID, cite.ID as citeID, cite.citenum, cite.cite as cite_text, cite.subsort as cite_subsort, wwwlink.wwwlink, wwwlink.wwwtext, wwwlink.WWWcode, wwwlink.dtafile FROM (fileinfo LEFT JOIN cite on fileinfo.Cite = cite.citenum) LEFT JOIN wwwlink on fileinfo.DTAfile = wwwlink.dtafile WHERE fileinfo.StudyNum='" . $studynumber . "' ORDER BY fileinfo.StudyPart";
+		
+		$queryDatasetRecord="SELECT fileinfo.*, fileinfo.Restricted AS restricted_file, fileinfo.ID as datasetID, cite.ID as citeID, cite.citenum, cite.cite as cite_text, cite.subsort as cite_subsort, wwwlink.wwwlink, wwwlink.wwwtext, wwwlink.WWWcode, wwwlink.dtafile FROM (fileinfo LEFT JOIN cite on fileinfo.Cite = cite.citenum) LEFT JOIN wwwlink on fileinfo.DTAfile = wwwlink.dtafile WHERE fileinfo.StudyNum='" . $studynumber . "' ORDER BY fileinfo.StudyPart";
+		
 		
 	
-
 		
-		echo "<strong>dataset record query:</strong> " . $queryDatasetRecord . "</strong>    ";
+		echo "<strong>dataset record query:</strong> " . $queryDatasetRecord . "<strong>;</strong>    ";
 		
 	// PDO connect  
 		$PDO_string = "mysql:host=" . $db_host . ";port=" . $db_port . ";dbname=" . $db_name ;
@@ -69,10 +61,7 @@
 				die ("Could not query the database: <br />". mysql_error());
 				} 	
 			// complete record info
-			//$datasetRecord = array();  // record - the title, sub# and restricted y/n		
-			
-			$datasetRecord = array();   // holds the record - the title, sub# and restricted y/n	
-			//echo print_r($datasetRecord) . "<br>";
+			$datasetRecord = array();  // record - the title, sub# and restricted y/n
 			
 			$row_index = 0;   
 			while ($row = $PDO_query->fetch(PDO::FETCH_ASSOC))  {
@@ -82,17 +71,14 @@
 				$datasetRecord[$row_index]["dataset_studypart"] = $row["StudyPart"];  // id for dataset record
 				$datasetRecord[$row_index]["dtafile"] = $row["DTAfile"];
 				$datasetRecord[$row_index]["dsname"] = $row["Dsname"];  
-				$datasetRecord[$row_index]["cite"] = $row["Cite"]; 
-				// this fileinfo.Cite connects to cite.citenum
+				$datasetRecord[$row_index]["cite"] = $row["Cite"]; // this fileinfo.Cite connects to cite.citenum
 				$datasetRecord[$row_index]["alttype"] = $row["AltType"];
 				$datasetRecord[$row_index]["altsnum"] = $row["AltSNUM"];
 				$datasetRecord[$row_index]["filetype"] = $row["FileType"];
 				$datasetRecord[$row_index]["note"] = $row["Note"];
 				$datasetRecord[$row_index]["dsname"] = $row["Dsname"];
-				$datasetRecord[$row_index]["fullsize"] = $row["Fullsize"];  
-				// NOTE: legacy - use Fullsize (vs. Gzipsize) for filesize 
-				$datasetRecord[$row_index]["reclen"] = $row["Reclen"];  
-				// NOTE: legacy - Reclen - record length - added 20130416jmj for older data files
+				$datasetRecord[$row_index]["fullsize"] = $row["Fullsize"];  // NOTE: legacy - use Fullsize (vs. Gzipsize) for filesize 
+				$datasetRecord[$row_index]["reclen"] = $row["Reclen"];  // NOTE: legacy - Reclen - record length - added 20130416jmj for older data files
 				
 				
 				
@@ -105,44 +91,25 @@
 				$datasetRecord[$row_index]["citeID"] = $row["citeID"];  // id for dataset record
 				$datasetRecord[$row_index]["cite_text"] = $row["cite_text"];
 				$datasetRecord[$row_index]["cite_subsort"] = $row["cite_subsort"];
-				$datasetRecord[$row_index]["cite_citenum"] = $row["citenum"]; 
-				//  <-- the connecting field: cite.citenum to fileinfo.Cite
+				$datasetRecord[$row_index]["cite_citenum"] = $row["citenum"]; //  <-- the connecting field: cite.citenum to fileinfo.Cite
 				
 							
 				
 				$row_index++;
 				
 			}
-			
-			//print_r($datasetRecord);
-			$datasetRecordListCount = count($datasetRecord);	
-			echo "<br>Dataset record list count = " . $datasetRecordListCount . "</br>";
-			//echo print_r($datasetRecord) . "<br>";
-			
-			
-					
-	} else 
 		
-			$studynumber = '';  
-	//----------------------------------------------------------------------------------
-	// end of the first if - see if studynumber has been set, blank==no
-	//--------------------------------------------------------------------------------
-	//  add session variables so the pages stays populated
-	//session_start();
-	if (isset($_SESSION['studynumber']))
-			$studynumber = $_SESSION['studynumber'];
-	else 
-			$studynumber = ''; 
-			
-	if (isset($_SESSION['datasetRecordListCount']))
-			$datasetRecordListCount = $_SESSION['datasetRecordListCount'];
-	else 
-			$datasetRecordListCount = 0;
-	
-	  $datasetRecordListCount = count($datasetRecord);	
-  echo "<br>Dataset record list count = " . $datasetRecordListCount . "</br>";
+	} else {
 		
-	echo "<br><strong>Studynumber:</strong> " . $studynumber . ";  <strong> Dataset record count:</strong> " . $datasetRecordListCount . "<br>";
+		$studynumber = "";
+		echo "studynumber = " . $studynumber . "<br>";
+	}
+		
+		
+		
+//print_r($datasetRecord);
+$datasetRecordListCount = count($datasetRecord);		
+echo "<br><strong>Studynumber:</strong> " . $studynumber . ";  <strong> Dataset record count:</trong> " . $datasetRecordListCount . "<br>";
 	
 $queryTitleStudyNumFileType = "SELECT title.StudyNum, fileinfo.FileType, fileinfo.dtafile, fileinfo.dtafilename  as datasetID FROM title LEFT JOIN fileinfo ON title.StudyNum = fileinfo.StudyNum ORDER BY title.StudyNum";
 	
@@ -176,8 +143,7 @@ $queryTitleStudyNumFileType = "SELECT title.StudyNum, fileinfo.FileType, fileinf
 			while ($row = $PDO_query->fetch(PDO::FETCH_ASSOC))  {
 					
 					$studynumberList[$row_index] = $row["StudyNum"];
-						if (!is_null($row["FileType"])) { $fileTypeList[$row_index] = $row["FileType"];  }  
-						// others won't have nulls
+						if (!is_null($row["FileType"])) { $fileTypeList[$row_index] = $row["FileType"];  }  // others won't have nulls
 						$dtafileList[$row_index] = $row["dtafile"];
 					
 					
@@ -324,9 +290,7 @@ function addNewFileTypeEntry(arg1, arg2) {
   // test to see if there are ANY records attached
   //  if-no - informational message
   //  else-yes - display them
-  $datasetRecordListCount = count($datasetRecord);	
-  echo "<br>Dataset record list count = " . $datasetRecordListCount . "</br>";
-  if (($datasetRecordListCount = 0) AND (isset($studynumber))) {
+  if (($datasetRecordListCount <= 0) AND (isset($studynumber))) {
 	  
 	  echo "There are no records attached to Study# " . $studynumber . ".";
 	  
@@ -401,7 +365,7 @@ function addNewFileTypeEntry(arg1, arg2) {
 			$color = $blue;
 		}
 		
-		echo "<input name='studynumber' value='" . $studynumber . "'>";
+		echo "<input name='studynumber' type='hidden' value='" . $studynumber . "'>";
         echo "<label>dataset ID: " . $datasetID . "</label>  and   <label>Dtafile number : " . $dtafile . "</label> ";
 		echo "<hr align='center' width='100%' size='1'>";
 		//<!--<input name='dtafile' type='text' size='20' value=" . $dtafile . "><br>    -->";
@@ -422,8 +386,7 @@ function addNewFileTypeEntry(arg1, arg2) {
 		?>
          </select>
          
-<label>add a file type NOT LISTED:  <input name='newfiletype' type='text' id="newFileTypeEntry<?php echo $datasetID;  ?>">
-</label>
+         <label>add a file type NOT LISTED:  <input name='newfiletype' type='text' id="newFileTypeEntry<?php echo $datasetID;  ?>"></label>
          
          <!--// use the datasetID to distinguish between each datasets filetype dropdown box -->
          <input name="da_catalog_insertSubjectCheck.php" type="button" onClick="addNewFileTypeEntry('newFileTypeEntry<?php echo $datasetID;  ?>', 'dropdownList<?php echo $datasetID;  ?>')" value="Add New File Type">
@@ -452,9 +415,9 @@ record length:<input type="text" name="reclen" id="reclen" value="<?php echo $re
            <input name="wwwID" type="hidden" value="<?php echo $wwwID;  ?>">
           Title link from other source, example - 'Roper': <input type="text" name="alttype" value="">
            Alternate studynumber from other source: <input name="altsnum" type="text" value="">
-           <input name="studyNumShort" value="<?php echo $studyNumShort;  ?>">
-           <input name="dtafile"  value="<?php echo $dtafile;  ?>">
-           <input name="gzsize" value="">
+           <input type="hidden" name="studyNumShort" value="<?php echo $studyNumShort;  ?>">
+           <input type="hidden" name="dtafile"  value="<?php echo $dtafile;  ?>">
+           <input type="hidden" name="gzsize" value="">
 
           <hr align='center' width='100%' size='1'>
           
@@ -462,8 +425,8 @@ record length:<input type="text" name="reclen" id="reclen" value="<?php echo $re
         <textarea name="cite_text" cols="101" rows="4"><?php echo $cite_text;  ?></textarea>  citeID: <?php echo $citeID;  ?>,  subsort: <?php echo $cite_subsort;  ?>, citenum: <?php echo $cite_citenum;  ?>
         
         <input name="citeID" type="hidden" value="<?php echo $citeID;  ?>">
-        <input name="cite_subsort" value="<?php echo $cite_subsort;  ?>">
-        <input name="cite_citenum" value="<?php echo $cite_citenum;  ?>">
+        <input name="cite_subsort" type="hidden" value="<?php echo $cite_subsort;  ?>">
+        <input name="cite_citenum" type="hidden" value="<?php echo $cite_citenum;  ?>">
         
           <hr align='center' width='100%' size='1'>
           
@@ -510,8 +473,6 @@ record length:<input type="text" name="reclen" id="reclen" value="<?php echo $re
  	// close the connection
 	// mysql_close($connection);		
 	$PDO_connection = null;
-	
-	session_destroy();
 	
 ?>
  

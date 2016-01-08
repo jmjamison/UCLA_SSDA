@@ -273,6 +273,7 @@ _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(funct
     <div class="menu-block-wrapper menu-block-1 menu-name-main-menu parent-mlid-0 menu-level-3">
   <ul class="menu"><li class="first leaf menu-mlid-3519"><a href="https://www.library.ucla.edu/about-data-archive">About the Data Archive</a></li>
 <li class="leaf menu-mlid-3520"><a href="https://www.library.ucla.edu/data-archive-catalog">Archive Catalog</a></li>
+<li class="leaf menu-mlid-3520"><a href="https://www.library.ucla.edu/location/social-science-data-archive/archive-collection-archiving-policy">Data Archive Collection and Archiving Policy</a></li>
 <li class="last leaf menu-mlid-3521"><a href="https://www.library.ucla.edu/archive-tutorials">Archive Tutorials and Resources</a></li>
 </ul></div>
   </div>
@@ -360,9 +361,9 @@ _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(funct
 
 
 
- <h2 align="center">Eve Fielder Collections</h2>
+ <h2 align="center">Eve Fielder Collection</h2>
 
-        <P>The EFL contains bibliographic citations to a collection of survey methods publications and journals donated to the Data Archive by <strong>Eve Fielder</strong>, former <em>Director of the ISSR Survey Research Center.</em> </P>
+        <P>The EFL contains bibliographic citations to a collection of survey methods publications and journals donated to the Data Archive by <a href="fielder_aboutEveFielder.php" target="_self">Eve Fielder</a>, former <em>Director of the ISSR Survey Research Center.</em> </P>
         <P>The items are available for use in the Archive and can sometimes be borrowed. For questions, please contact the <a href="mailto:libbie@ucla.edu">Archive</a>.</P>
           
           <div align="center">

@@ -12,6 +12,8 @@
 	
 	$currentHTTP = "http://data-archive.library.ucla.edu/da_catalog_maintenance/";	
 	include("../_includes/SSDA_librarydatabase_edit.php"); 
+	// below links to the test version of the database, for testing
+	//include("SSDA_librarydatabase_edit.php"); 
 	
 	
 	
@@ -24,6 +26,10 @@
 	//   title table
 	//----------------------------------------------------------------------------------
 	// $tisort is the title table key, auto-imcrementd, set at insert
+	if (isset($_POST['studynumber'])) {
+		$studynumber = $_POST['studynumber'];
+	}
+		
 	$current_studynumber = strtoupper($_POST['studynumber']);
 	//echo $current_studynumber . "<br>";
 	//------------------------------
@@ -35,7 +41,7 @@
 			//$PDO_string = "mysql:host=".$db_host.";dbname=da_catalog";
 			$PDO_string = "mysql:host=" . $db_host . ";port=" . $db_port . ";dbname=" . $db_name ;
 			// echo "$PDO_string<br>";
-			$PDO_connection = new PDO($PDO_string, $db_username, $db_password);
+			$PDO_connection = new PDO($PDO_string, $db_username_edit, $db_password_edit);
 	
 			$query_check_title = "select StudyNum from title where StudyNum = '" . $current_studynumber . "'";
 			//echo $query_check_title . "<br>";
@@ -70,7 +76,7 @@
 	if (isset($_POST['restricted'])) {
 	$current_restricted = $_POST['restricted'];
 	// note - pick this up from title.restricted
-		echo "<br>$restricted";
+		echo "<br>$current_restricted";
 	}	else {
 		$current_restricted = "";
 	}
@@ -89,21 +95,22 @@
 		$sda = $_POST['sda'];
 		//echo "<br>$sda";
 	} else { $sda = "";	}
+	
 	if (isset($_POST['varsrch'])) {
 		$varsrch = $_POST['varsrch'];
 		//echo "<br>$varsrch";
 	} else { $varsrch = ""; }
+	
 	if (isset($_POST['justonCD'])) {
 		$justonCD = $_POST['justonCD'];
-		//echo "<br>$justonCD";
 	} else { $justonCD= ""; }
+	
 	if (isset($_POST['mobilityData'])) {
-		$mobilityData = $_POST['mobilityData'];
-		//echo "<br>$mobilityData";
+		$mobilityData = $_POST['mobilityData'];		
 	} else { $mobilityData= ""; }
+	
 	if (isset($_POST['eveFielderCollection'])) {
-		$justonCD = $_POST['eveFielderCollection'];
-		//echo "<br>$eveFielderCollection";
+		$eveFielderCollection = $_POST['eveFielderCollection'];
 	} else { $eveFielderCollection= ""; }
 	
 	
@@ -190,7 +197,7 @@
 				//$PDO_string = "mysql:host=".$db_host.";dbname=da_catalog";
 				$PDO_string = "mysql:host=" . $db_host . ";port=" . $db_port . ";dbname=" . $db_name ;
 				// echo "$PDO_string<br>";
-				$PDO_connection = new PDO($PDO_string, $db_username, $db_password);
+				$PDO_connection = new PDO($PDO_string, $db_username_edit, $db_password_edit);
 	
 				//echo $query_checkPIdups . "<br>";
 				
@@ -330,7 +337,7 @@
 		
 	// close the connection
 	// mysql_close($connection);		
-	$PDO_connection = null;
+	//$PDO_connection = null;
 	
 	// -------------------------------------------------------------------------------
 	
@@ -339,31 +346,35 @@
 	echo "<br><A HREF='javascript:javascript:history.go(-1)'>Click here to go back to previous page</A><br>";
 	echo "";
 	echo "<form action='da_catalog_insert.php' method='post' target='_self'>";
-	echo "<input type='hidden' name='studynumber' value='" . $current_studynumber . "'> ";
-	echo "<input type='hidden' name='title' value='" . htmlentities($title, ENT_QUOTES) . "'> ";
-	echo "<input type='hidden' name='restricted' value='" . $restricted . "'> ";
-	echo "<input type='hidden' name='dateadded' value='" . $dateadded . "'> ";
-	echo "<input type='hidden' name='lastupdated' value='" . $lastupdated . "'> ";
-	echo "<input type='hidden' name='sda' value='" . $sda . "'> ";
-	echo "<input type='hidden' name='varsrch' value='" . $varsrch . "'> ";
-	echo "<input type='hidden' name='mobilityData' value='" . $mobilityData . "'> ";
-	echo "<input type='hidden' name='eveFielderCollection' value='" . $eveFielderCollection . "'> ";
-	echo "<input type='hidden' name='www' value='" . $www . "'> ";
-	echo "<input type='hidden' name='citenum' value='" . $citenum . "'> ";
-	echo "<input type='hidden' name='cite_text' value='" . htmlentities($cite_text, ENT_QUOTES) . "'> ";
-	echo "<input type='hidden' name='justonCD' value='" . $justonCD . "'> ";
-	echo "<input type='hidden' name='article' value='" . $article . "'> ";
+	echo "Edit (below) or <input name='submitRecord' type='submit' value='Submit Record'><br><br>";
 	
-	echo "<input type='hidden' name='pi' value='" . htmlspecialchars($pi, ENT_QUOTES) . "'> ";
+	echo "Study Number: <input name='studynumber' value='" . $current_studynumber . "'><br><br>";
+	echo "Title: <input name='title' size='100' value='" . htmlentities($title, ENT_QUOTES) . "'><br><br>";
+	echo "PI(s)<input name='pi' ' size='100'  value='" . htmlspecialchars($pi, ENT_QUOTES) . "'><br><br>";
 	
-	echo "<input type='hidden' name='subject' value='" . $subject . "'> ";
-	echo "<input type='hidden' name='numstudies' value='" . $numstudies . "'> ";
-	echo "<input type='hidden' name='dontdisplay' value='" . $dontdisplay . "'> ";
-	echo "<input type='hidden' name='icpsrcountry' value='" . $icpsrcountry . "'> ";
-	echo "<input type='hidden' name='icpsrlink' value='" . $icpsrlink . "'> ";
+	echo "Index/Subject(s): <input name='subject' size='100' value='" . $subject . "'><br><br>";
 	
-		
-	echo "<input name='submitRecord' type='submit' value='Submit Record'></form>"
+	echo "Restricted: <input name='restricted' value='" . $restricted . "'> ";
+	echo "SDA: <input name='sda' value='" . $sda . "'><br>";
+	echo "Varsarch: <input name='varsrch' value='" . $varsrch . "'> ";
+	echo "Mobility Data: <input name='mobilityData' value='" . $mobilityData . "'><br>";
+	echo "Eve Fielder Collection: <input name='eveFielderCollection' value='" . $eveFielderCollection . "'> <br><br>";
+	echo "Web Link: <input name='www' value='" . $www . "'>  ";
+	echo "Citation: number:<input name='citenum' value='" . $citenum . "'><br>";
+	echo "Citation: <input name='cite_text' value='" . htmlentities($cite_text, ENT_QUOTES) . "'><br>";
+	echo "Just-on-CD<input name='justonCD' value='" . $justonCD . "'> ";
+	echo "<input name='article' value='" . $article . "'> ";
+	
+	//echo "<input name='pi' value='" . htmlspecialchars($pi, ENT_QUOTES) . "'> ";
+	
+	//echo "<input name='subject' value='" . $subject . "'> ";
+	echo "Number of studies: <input name='numstudies' value='" . $numstudies . "'> ";
+	echo "Don't display: <input name='dontdisplay' value='" . $dontdisplay . "'><br> ";
+	echo "ICPSR country: <input name='icpsrcountry' value='" . $icpsrcountry . "'> <br>";
+	echo "ICPSR link: <input name='icpsrlink' value='" . $icpsrlink . "'> ";	
+	echo "DateAdded: <input name='dateadded' value='" . $dateadded . "'><br> ";
+	echo "DateUpdated: <input name='lastupdated' value='" . $lastupdated . "'> ";	
+	echo "</form>";
 	
 
  

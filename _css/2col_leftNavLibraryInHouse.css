@@ -92,6 +92,21 @@ li.alphaTitleList {
 	list-style-type: disc;
 }
 
+/*****************************************************************************************/
+/************** content styles; used for dataset list    *****************/
+/*****************************************************************************************/
+table#datasetListForDownload td{
+	font-size: small;
+	padding: 10px 1px 10px 10px;
+	text-align:left;
+	
+}
+
+table#datasetListForDownload table, th, td{
+	border: thin dotted lightgrey;
+	
+}
+
 /***********************************************/
 /*Component Divs                               */
 /***********************************************/

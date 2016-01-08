@@ -19,6 +19,9 @@
   
   	$currentHTTP = "http://data-archive.library.ucla.edu/da_catalog_maintenance/";	
 	include("../_includes/SSDA_librarydatabase_edit.php"); 
+	// below links to the test version of the database, for testing
+	//include("SSDA_librarydatabase_edit.php"); 
+	
 	
 	if (!empty($_POST['studynumber'])) {  // if NOT empty, ie it is set, query by studynumber for base record info
 		$_SESSION['studynumber'] = $_POST['studynumber'];
@@ -56,7 +59,7 @@
 				} 	
 				
 				
-				// complete record info
+			// complete record info
 			$titleRecord = array();  // record - the title, sub# and restricted y/n
 			// list of pi(s)
 			$piList = array();		// list of pi(s)
@@ -93,6 +96,7 @@
 				//$_SESSION['title'] = $row["Title"];
 				// htmlspecialcharacters fixes situation where title string has quotes or other speical characters
 				$_SESSION['title'] = htmlspecialchars($row["Title"]);
+				$_SESSION['dataverseDOI'] = $row["dataverseDOI"];
 				$_SESSION['tisort'] = $row["tisort"];   // ID for title table, connecting field to the picode and shcode tables
 				$_SESSION['restricted'] = $row[ "Restricted" ];
 				$_SESSION['www'] = $row[ "WWW" ];
@@ -243,6 +247,11 @@
 			$title = $_SESSION['title'];
 	else 
 			$title = '';
+			
+	if (isset($_SESSION['dataverseDOI']))
+			$dataverseDOI = $_SESSION['dataverseDOI'];
+	else 
+			$dataverseDOI = '';
 			
 	if (isset($_SESSION['tisort']))
 			$tisort = $_SESSION['tisort'];
@@ -532,6 +541,8 @@ $querySubject_list = "SELECT DISTINCT subject FROM shfull ORDER BY subject";
       <!--<input name="title" type="hidden" value="title"> -->
        
        <label>Title: <input name="title" type="text" value="<?php echo $title ?>" size="100" maxlength="225">
+       <br><label>Dataverse DOI (or similar single download link): <input name="dataverseDOI" type="text" value="<?php echo $dataverseDOI ?>" size="100" maxlength="225">
+       
        </label><input name="tisubsort" type="hidden" value="1">
        
           <br><br>

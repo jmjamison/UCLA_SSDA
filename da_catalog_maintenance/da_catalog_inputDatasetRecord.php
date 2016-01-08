@@ -13,6 +13,8 @@
 		
 	$currentHTTP = "http://data-archive.library.ucla.edu/da_catalog_maintenance/";	
 	include("../_includes/SSDA_librarydatabase_edit.php"); 
+	// below links to the test version of the database, for testing
+	//include("SSDA_librarydatabase_edit.php"); 
 	
 	
 	
@@ -102,12 +104,17 @@
 	//$cite = $citenum . $studypart;
 	
 	$currentHTTP = "http://data-archive.library.ucla.edu/da_catalog_maintenance/";	
-	include("SSDA_librarydatabase_edit.php"); 
+	include("../_includes/SSDA_librarydatabase_edit.php"); 
+	// below links to the test version of the database, for testing
+	//include("SSDA_librarydatabase_edit.php"); 
 	
 	// for desktop test system
 	//$db_name = "da_catalog";	
 	
-$queryTitleStudyNumFileType = "SELECT title.StudyNum, title.Title, fileinfo.* FROM title LEFT JOIN fileinfo ON title.StudyNum= fileinfo.StudyNum ORDER BY title.StudyNum";
+//$queryTitleStudyNumFileType = "SELECT title.StudyNum, title.Title, fileinfo.* FROM title LEFT JOIN fileinfo ON title.StudyNum= fileinfo.StudyNum ORDER BY title.StudyNum";
+
+$queryTitleStudyNumFileType = "SELECT title.StudyNum, fileinfo.FileType, fileinfo.DTAfile FROM title LEFT JOIN fileinfo ON title.StudyNum = fileinfo.StudyNum ORDER BY title.StudyNum";
+
 
 echo "<b>" . $queryTitleStudyNumFileType . "";
 	
@@ -143,24 +150,26 @@ echo "<b>" . $queryTitleStudyNumFileType . "";
 					if (!is_null($row["FileType"])) { $fileTypeList[$row_index] = $row["FileType"];  }  // others won't have nulls
 					$dtafileList[$row_index] = $row["DTAfile"];
 					
-					$title = $row["Title"];
+					//$title = $row["Title"];
 					
 					
 					$row_index++;
 			}
 			
 			$fileTypeList = array_unique($fileTypeList);
-			sort($fileTypeList);
+			natcasesort($fileTypeList);
 			$fileTypeTotal = count($fileTypeList);
 			
 			$dtafileList = array_unique($dtafileList);
 			sort($dtafileList);
 			
-			
 			$studynumberList = array_unique($studynumberList);
 			natcasesort($studynumberList);
 			//sort($studynumberList);
 			$studynumberListTotal = count($studynumberList);
+			
+			echo "<br>Last dta number: " . end($dtafileList) . "<br>";
+			echo "Last study number: " . end($studynumberList) . "<br>";
 			
 			
 			$fileTypeListText = implode("','", $fileTypeList);

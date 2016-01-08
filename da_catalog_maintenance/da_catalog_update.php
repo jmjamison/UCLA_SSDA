@@ -56,6 +56,8 @@ echo $studynumber
 		
 	$currentHTTP = "http://data-archive.library.ucla.edu/da_catalog_maintenance/";	
 	include("../_includes/SSDA_librarydatabase_edit.php"); 
+	// below links to the test version of the database, for testing
+	//include("SSDA_librarydatabase_edit.php"); 
 	// maintenance doesn't use the menu bar
 	//include("../_includes/SSDA_menubar.php");  
 	// SSDA_menubar.php has the menu code for da_catalog, da_catalog_fielder(fielder collection) and 'archive reource
@@ -110,6 +112,13 @@ echo $studynumber
 	} else {
 		$sda = "";
 	}
+	
+	if (isset($_POST['dataverseDOI'])) {
+		$dataverseDOI = $_POST['dataverseDOI'];
+	} else {
+		$dataverseDOI = "";
+	}
+	
 	if (isset($_POST['varsrch'])) {
 		$varsrch = $_POST['varsrch'];
 		//$varsrch = "";
@@ -165,7 +174,7 @@ echo $studynumber
 	$article = $_POST['article'];
 	//$article = "";
 	$title = addslashes(html_entity_decode($_POST['title']));
-	//echo "<br>" . $title . "<br>";
+	echo "<br>" . $title . "<br>";
 	//$title = "Process Evaluation of the Comprehensive Communities Program in Selected Cities in the United States, 1994-1996";
 	
 	if (isset($_POST['dateadded'])) {
@@ -176,6 +185,7 @@ echo $studynumber
 	echo "<h2>New baserecord updated: " . $dateadded . "</h2>";
 	echo "<h2>Fields updated or set for " .  $studynumber  .  "</h2>";	
 	echo "<br><strong>title:</strong> " . $title . "<br><br>";
+	echo "<br><strong>DataverseDOI:</strong> " . $dataverseDOI . "<br><br>";
 	
 	
 	echo "<strong>Fields set:</strong><br>";
@@ -204,8 +214,9 @@ echo $studynumber
 // first pass insert data into TITLE, PIFULL, SHFULL
 // title   // pifull   // shfull  // cite gets the citenum from title.cite
 
-$query_update_title = "UPDATE title SET Title='" . $title . "', Restricted='" . $restricted . "', LastUpdated='" . $lastupdated . "', SDA='" . $sda .  "', Varsrch='" . $varsrch . "', JustOnCD='" . $justonCD . "', mobilityData='" . $mobilityData . "', eveFielderCollection='" . $eveFielderCollection . "', Cite='" . $citenum . "', WWW='" . $www .  "' where StudyNum ='" . $studynumber . "'";
-//echo "<br>" . $query_update_title . "<br>";   // SDA` = '*' 
+$query_update_title = "UPDATE title SET Title='" . $title . "', Restricted='" . $restricted . "', LastUpdated='" . $lastupdated . "', SDA='" . $sda .  "', Varsrch='" . $varsrch . "', JustOnCD='" . $justonCD . "', dataverseDOI='" . $dataverseDOI . "', mobilityData='" . $mobilityData . "', eveFielderCollection='" . $eveFielderCollection . "', Cite='" . $citenum . "', WWW='" . $www . "' where StudyNum ='" . $studynumber . "'";
+
+echo "<br><br>" . $query_update_title . "<br>";   // SDA` = '*' 
 		
 		//----------------------------------------------------------------------------------
 		// PDO - create prepared statement: get the title.tisort 	
@@ -219,9 +230,9 @@ $query_update_title = "UPDATE title SET Title='" . $title . "', Restricted='" . 
 		
 		$PDO_query = $PDO_connection->prepare($query_update_title);
 		//  PDO - execute the query
-		$insert_title = $PDO_query->execute();
+		$update_title = $PDO_query->execute();
 		//echo "<br>title insert query: " .  $query_from_title . "<br>";
-	  		if (!$insert_title) {
+	  		if (!$update_title) {
 					echo "Could not connect to the database because: ".	$e->getMessage()."<br>";
 					die ("Could not query the database: <br />". mysql_error());
 				} 	
@@ -349,7 +360,7 @@ $query_update_title = "UPDATE title SET Title='" . $title . "', Restricted='" . 
 	
 	$_SESSION['studynumber'] = $studynumber;
 	$_SESSION['title'] = $title;
-	echo "<br>" . $title . "<br>";
+	//echo "<br>" . $title . "<br>";
 	$_SESSION['restricted'] = $restricted;
 	$_SESSION['sda'] = $sda;
 	$_SESSION['varsrch'] = $varsrch;
@@ -360,9 +371,10 @@ $query_update_title = "UPDATE title SET Title='" . $title . "', Restricted='" . 
 	$_SESSION['eveFielderCollection'] =  $eveFielderCollection;
 	$_SESSION['www'] = $www;
 	$_SESSION['justonCD'] = $justonCD;
+	$_SESSION['dataverseDOI'] = $dataverseDOI;
 	
 	$_SESSION['pi'] = $pi;
-	echo "<br>" . $pi . "<br>";
+	//echo "<br>" . $pi . "<br>";
 	$_SESSION['subject'] = $subject;
 	
 

@@ -268,26 +268,8 @@ _gaq.push(['_setSiteSpeedSampleRate', 100]);_gaq.push(["_trackPageview"]);(funct
   
       
   
-  <div class="pane-content">
-    <div class="menu-block-wrapper menu-block-1 menu-name-main-menu parent-mlid-0 menu-level-3">
-  <ul class="menu"><li class="first leaf menu-mlid-3519"><a href="https://www.library.ucla.edu/about-data-archive">About the Data Archive</a></li>
-<li class="leaf menu-mlid-3520"><a href="https://www.library.ucla.edu/data-archive-catalog">Archive Catalog</a></li>
-<li class="last leaf menu-mlid-3521"><a href="https://www.library.ucla.edu/archive-tutorials">Archive Tutorials and Resources</a></li>
-</ul></div>
-  </div>
-
+  <?php include_once("../_includes/SSDA_LibrarySidePanel.php") ?>
   
-  </div>
-<div class="panel-pane pane-quick-links sidebar-tier-2">
-  
-        <h2 class="pane-title">Quick Links</h2>
-    
-  
-  <div class="pane-content">
-    <div class="field field--name-field-quick-links field--type-link-field field--label-hidden"><div class="field__items"><div class="field__item even"><a href="http://www.icpsr.umich.edu/icpsrweb/ICPSR/" target="_blank">ICPSR</a></div><div class="field__item odd"><a href="http://www.ropercenter.uconn.edu/" target="_blank">Roper Center</a></div><div class="field__item even"><a href="https://www.library.ucla.edu/data-related-videos">Data Related Videos</a></div><div class="field__item odd"><a href="https://www.library.ucla.edu/data-portals">Data Portals</a></div></div></div>  </div>
-
-  
-  </div>
 <div class="panel-pane pane-bean-text-block pane-bean-ssda-schedule-appointment">
   
       
@@ -688,20 +670,20 @@ if (!$result) {
 			//echo "<br>";
 			//echo "For material available to download from the Data Archve:<br>";
 			echo "Click on the <b>File Name</b> to download an individual file.<br>";
-			echo "<div id='downloadallfiles' class='datasets' >";
+			echo "<div id='downloadallfiles' >";
 			//  12-15-09jmj
 			//  if there is 1 or more - >= 1 - datasets that can be downloaded from the DATA ARCHIVE 
 			//  after the dataset list is written out, javascript at the end of this section will write in thelines
 			//   commented out below 
 		//	echo "To download an entire study choose: <A HREF='addfiles.php?file=&study=" . $studynumber . "&src=" . $studynumber . "'><img src='addall.gif'></a><br><br>";
        		echo "</div><br>";
-			echo "<div class='datasets' style = 'font-size: small'>Click category headers to sort.<br>";
-			echo "<table id='datasetList' class='tablesorter'  style = 'font-size: small' cellpadding=5 >";
+			echo "<div>Click category headers to sort.<br>";
+			echo "<table id='datasetListForDownload' class='tablesorter'>";
 			echo "<thead><tr>";
-			echo "<th class='label'  style = 'background-color: powderblue' width=100 >File Type</th>";
-			echo "<th class='label'  style = 'background-color: powderblue' width=180 >Note</th>";
-			echo "<th class='label'  style = 'background-color: powderblue' width=200 >Download Site</th>";	
-			echo "<th class='label'  style = 'background-color: powderblue'>Dataset Citation</th>";
+			echo "<th width=100 >File Type</th>";
+			echo "<th width=180 >Note</th>";
+			echo "<th width=180 >Download Site</th>";	
+			echo "<th >Dataset Citation</th>";
 			echo "</tr></thead>";
 			
 	} 
@@ -768,7 +750,7 @@ if (!$result) {
 					$sda_onlineanalysis_link="http://sda.sscnet.ucla.edu/cgi-bin/hsda?harc";
 					echo "<TD>"  .  $filetype . "</TD>";  // which would be 'SDA online analysis' 
 					echo "<TD>" . $note  . " ** SDA</TD>";     // something like the year, description, etc :  Codebook 1985-2001
-					echo "<TD><a href='" . $sda_onlineanalysis_link . $dsname . "+" . $dsname . "'><h3>" . $filetype . " (" .  $dsname .  ") </h3><a></TD>";
+					echo "<TD><a href='" . $sda_onlineanalysis_link . $dsname . "+" . $dsname . "'>" . $filetype . " (" .  $dsname .  ") <a></TD>";
 					
 				} elseif (stristr ($filetype, "Web Access")) { 
 				
@@ -794,7 +776,7 @@ if (!$result) {
 							//$icpsrStudynumberLength = strlen($note)-5;
 							$icpsrStudynumber = substr($wwwtext, 5, strlen($wwwtext)-5);
 							$icpsrStudynumberLength = strlen($wwwtext)-5;
-							echo "<TD><a href=" . $icpsrPersistentLink . $icpsrStudynumber ."><h3>" . $wwwtext  . "</h3><a></TD>";
+							echo "<TD><a href=" . $icpsrPersistentLink . $icpsrStudynumber .">" . $wwwtext  . "</h3><a></TD>";
 							//------------------------------------------------------------------
 							//    ELSE the link field -  wwwtext_link -  is NOT blank
 							
@@ -802,7 +784,7 @@ if (!$result) {
 								  
 								  //echo "<TD><a href=http://" . $wwwlink . "><h3>" . $wwwlink_text .  "</h3><a></TD>";
 								 	//echo "wwwlink: " . $wwwlink . "<br>";
-								  echo "<TD><a href='http://" . $wwwlink . "'><h3>" . $wwwtext .  "</h3><a></TD>";
+								  echo "<TD><a href='http://" . $wwwlink . "'>" . $wwwtext .  "<a></TD>";
 								  }
 						
 						} else {  // any other site than ICPSR, no persistent link 
@@ -830,7 +812,7 @@ if (!$result) {
 				
 				
 				
-			//	echo "<td>" . $datacite . "</td>";
+			echo "<td align='left'>" . $datacite . "</td>";
 				
 				$previousDtafilenum = $dtafilenum;
 				

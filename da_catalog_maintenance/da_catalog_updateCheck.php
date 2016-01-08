@@ -30,6 +30,8 @@
 	
 	$currentHTTP = "http://data-archive.library.ucla.edu/da_catalog_maintenance/";	
 	include("../_includes/SSDA_librarydatabase_edit.php"); 
+	// below links to the test version of the database, for testing
+	//include("SSDA_librarydatabase_edit.php"); 
 	// maintenance doesn't use the menu bar
 	//include("../_includes/SSDA_menubar.php");  
 	// SSDA_menubar.php has the menu code for da_catalog, da_catalog_fielder(fielder collection) and 'archive reource
@@ -106,6 +108,15 @@
 	}	else {
 		$current_restricted = "";
 	}
+	
+	if (isset($_POST['dataverseDOI'])) {
+	$dataverseDOI = $_POST['dataverseDOI'];
+	// note - pick this up from title.restricted
+		//echo "<br>$restricted";
+	}	else {
+		$dataverseDOI = "";
+	}
+	
 	$dontdisplay = $current_restricted;
 	//$dontdisplay = "";
 	// note - pick this up from title.restricted
@@ -236,31 +247,34 @@
 	echo "<br><A HREF='javascript:javascript:history.go(-1)'>Click here to go back to editing page page</A><br>";
 	echo "";
 	echo "<form action='da_catalog_update.php' method='post' target='_self'>";
-	echo "<input name='studynumber' value='" . $studynumber . "'> ";
-	echo "<input name='title' value='" . htmlentities($title, ENT_QUOTES) . "'> ";
-	echo "<input name='restricted' value='" . $restricted . "'> ";
-	echo "<input name='lastupdated' value='" . $lastupdated . "'> ";
-	echo "<input name='sda' value='" . $sda . "'> ";
-	echo "<input name='varsrch' value='" . $varsrch . "'> ";
-	
-	echo "<input name='citeID' value='" . $citeID . "'> ";
-	echo "<input name='citenum' value='" . $citenum . "'> ";
-	echo "<input name='cite_subsort' value='" . $cite_subsort . "'> ";
-	echo "<input name='cite_text' value='" . htmlentities($cite_text, ENT_QUOTES) . "'> ";
+	echo "Edit below or <input name='submitRecord' type='submit' value='Submit Record'><br><br>";
+	echo "Study number: <input name='studynumber' value='" . $studynumber . "'><br>";
+	echo "Title: <input size='100' name='title' value='" . htmlentities($title, ENT_QUOTES) . "'><br><br>";
+	echo "DataverseDOI: <input size='100' name='dataverseDOI' value='" . $dataverseDOI . "'><br><br>";
 	
 	// there is only a single citation for title/bib/base records
 	echo "<input name='cite_subsort' value='" . $cite_subsort . "'> ";
+	echo "<input name='citeID' value='" . $citeID . "'> ";
+	echo "Citation ID number: <input name='citenum' value='" . $citenum . "'> ";
+	echo "<input name='cite_subsort' value='" . $cite_subsort . "'> ";
+	echo "Citation: <input name='cite_text' value='" . htmlentities($cite_text, ENT_QUOTES) . "'><br><br>";
+	
+	echo "<input name='restricted' value='" . $restricted . "'> ";
+	echo "<input name='sda' value='" . $sda . "'> ";
+	echo "<input name='varsrch' value='" . $varsrch . "'><br><br> ";
+	
 	
 	echo "<input name='mobilityData' value='" . $mobilityData . "'> ";
 	echo "<input name='eveFielderCollection' value='" . $eveFielderCollection . "'> ";
 	echo "<input name='www' value='" . $www . "'> ";
 	echo "<input name='justonCD' value='" . $justonCD . "'> ";
 	echo "<input name='article' value='" . $article . "'> ";
+	echo "<input name='lastupdated' value='" . $lastupdated . "'> ";
 	
 	
 	
 		
-	echo "<input name='submitRecord' type='submit' value='Submit Record'></form>";
+	echo "</form>";
 	
 	
 ?>
