@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
-<file name="SSDA_librarydatabase.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130888255390000000" remote="130888255390000000" Dst="-1" />
+<file name="SSDA_librarydatabase.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130888255390000000" remote="130888255390000000" Dst="1" />
 <file name="index.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130886418578616036" remote="130886418570000000" Dst="-1" />
 <file name="2col_leftNav.css" server="//ad/webdev/SSDataArchivePHPWebSite/" local="128921546040000000" remote="128921546040000000" Dst="1" />
 <file name="index.html" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130886421080000000" remote="130886421080000000" Dst="-1" />
@@ -26,4 +26,5 @@
 <file name="da_catalog_insertDatasetRecordCheck.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130934082241654069" remote="130934082240000000" Dst="1" />
 <file name="da_catalog_insertDatasetRecord.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="130934082812152608" remote="130934082810000000" Dst="1" />
 <file name="da_catalog_insertCitation.php" server="//ad/webdev/SSDataArchivePHPWebSite/" local="129180772400000000" remote="129180772400000000" Dst="1" />
+<file name=".gitignore" server="//ad/webdev/SSDataArchivePHPWebSite/" local="129163666740000000" remote="129163666740000000" Dst="1" />
 </dwsync>

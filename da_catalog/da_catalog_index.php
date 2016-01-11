@@ -332,20 +332,6 @@ These are broad terms we use to organize the collection into categories. You sho
 	include("../_includes/SSDA_librarydatabase.php");  //SSDA_menubar.php has the menu code for da_catalog, da_catalog_fielder(fielder collection) and 'archive reources'
 	// class for database connections
 	include "../_classes/class.Database.php";
-// Define configuration
-// define info pulled from SSDA_librarydatabase.php
-define("DB_HOST", $db_host);
-define("DB_PORT", $db_port);
-define("DB_USER", $db_username);
-define("DB_PASS", $db_password);
-define("DB_NAME", $db_name);
-	
-// should be adding "class.Database.php";	
-//function __autoload($class_name) {
-	// echo 'class.' . $class_name . '.php<br>';
-	//include 'class.' . $class_name . '.php';
-//}
-	
 	// sql query statement  
 
 	// old query did not exclude the items marked Restricted

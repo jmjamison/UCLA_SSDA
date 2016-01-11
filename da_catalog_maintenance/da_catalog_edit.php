@@ -19,8 +19,6 @@
   
   	$currentHTTP = "http://data-archive.library.ucla.edu/da_catalog_maintenance/";	
 	include("../_includes/SSDA_librarydatabase_edit.php"); 
-	// below links to the test version of the database, for testing
-	//include("SSDA_librarydatabase_edit.php"); 
 	
 	
 	if (!empty($_POST['studynumber'])) {  // if NOT empty, ie it is set, query by studynumber for base record info

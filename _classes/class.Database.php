@@ -2,6 +2,14 @@
 /**
  * MySQLi database; only one connection is allowed. 
  */
+ 
+define("DB_HOST", $db_host);
+define("DB_PORT", $db_port);
+define("DB_USER", $db_username);
+define("DB_PASS", $db_password);
+define("DB_NAME", $db_name);
+
+
 class Database {
     
 # change db_username, db_password and db_name as necessary
