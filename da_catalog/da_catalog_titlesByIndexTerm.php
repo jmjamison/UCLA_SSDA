@@ -61,23 +61,18 @@
 	// class for database connections
 	include "../_classes/class.Database.php";
 
+	$indexTerm =  htmlspecialchars($_GET['indexTerm'], ENT_QUOTES); 
 	 
 	// check, if NOT set 
-	if (!isset($_GET['indexTerm'])) { 
+	if (!isset($indexTerm)) { 
 		echo "<span style='margin-left: 0; text-align: center; background-color: powderblue;'><a href='mobindex.html'>No citations selected. Return to catalog.</a></span><br>";
 		die ("No citations selected.");
 		
 		}
 		
 	// get the study number
-
-	
-	 
-	$indexTerm =  $_GET['indexTerm']; 
-	
 	// sql query statement
-// $query = "select title.Title, title.StudyNum from da_catalog.title where title.Title regexp '^[".$index_letter."]' and title.Restricted != '*' order by title.Title";
-//$query = "select title.Title, title.StudyNum, shfull.subject FROM (title INNER JOIN shcode ON title.tisort = shcode.tisort) INNER JOIN shfull ON shcode.subjectcode = shfull.subjectcode WHERE (shfull.subject ='".$indexTerm."') ORDER BY shfull.subject";
+
 //  NOTE: previous old query did not exclude the Restricted items, the new belwo query excludes item marked Restricted
 $query = "select title.Title, title.StudyNum, shfull.subject FROM (title INNER JOIN shcode ON title.tisort = shcode.tisort) INNER JOIN shfull ON shcode.subjectcode = shfull.subjectcode WHERE (shfull.subject ='".$indexTerm."') and title.Restricted <> '*'  ORDER BY title.Title";
 	

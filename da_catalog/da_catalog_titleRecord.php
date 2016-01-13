@@ -79,8 +79,7 @@
 	// for the record: I had been using both title AND the study number, although I'm not displaying the studynumber -  to be sure I get the correct study
 	// Last verion is only searching by studynumber.   151023
 	
-	$studynumber =  $_GET['studynumber']; 
-	//$title =  $_GET['title']; 
+	$studynumber =  htmlspecialchars($_GET['studynumber'], ENT_QUOTES); 
 	//echo $title . " " . $studynumber . "<br>";
 	//echo $studynumber . "<br>";
 	
@@ -94,7 +93,7 @@
 	//echo $queryDatasetRecords . "<br>"; 
 	 
 	// check, if NOT set 
-	if (!isset( $_GET['studynumber'])) {  //   remove $title test, this will eventually be phased out as redundent -  or !isset($_GET['title'])  - jmj120409
+	if (!isset($studynumber)) {  //   remove $title test, this will eventually be phased out as redundent -  or !isset($_GET['title'])  - jmj120409
 		echo "<span style='margin-left: 0; text-align: center; background-color: powderblue;'><a href='mobindex.html'>No citations selected. Return to catalog.</a></span><br>";
 		die ("No citations selected.");
 		
