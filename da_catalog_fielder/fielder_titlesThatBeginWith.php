@@ -64,17 +64,17 @@
 	include("../_includes/SSDA_librarydatabase.php");  //SSDA_menubar.php has the menu code for da_catalog, da_catalog_fielder(fielder collection) and 'archive reources'
 	// class for database connections
 	include "../_classes/class.Database.php";
+	
+	$index_letter =  htmlspecialchars($_GET['index_letter'], ENT_QUOTES); 
 
 	 
 	// check, if NOT set 
-	if (!isset($_GET['index_letter'])) { 
+	if (!isset($index_letter)) { 
 		echo "<span style='margin-left: 0; text-align: center; background-color: powderblue;'><a href='fielder_titles.php'>No citations selected. Return to catalog.</a></span><br>";
 		die ("No citations selected.");
 		
 		}
 	 
-	$index_letter =  $_GET['index_letter']; 
-	
 	// echo "index letter: " . $index_letter . "<br>";;
 	
 	// sql query statement

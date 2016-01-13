@@ -65,22 +65,25 @@
 	// class for database connections
 	include "../_classes/class.Database.php";
 	
+	$author =  htmlspecialchars($_GET['author'], ENT_QUOTES); 
+	$authorID =  htmlspecialchars($_GET['authorID'], ENT_QUOTES); 
+	
 	 
 	// check, if NOT set 
-	if (!isset($_GET['author'])) { 
+	if (!isset($author)) { 
 		echo "<span style='margin-left: 0; text-align: center; background-color: powderblue;'><a href='fielder_titles.php'>No citations selected. Return to catalog.</a></span><br>";
 		die ("No citations selected.");
 		
 		}
 		
-	if (!isset($_GET['authorID'])) { 
+	if (!isset($authorID)) { 
 		echo "<span style='margin-left: 0; text-align: center; background-color: powderblue;'><a href='fielder_titles.php'>No citations selected. Return to catalog.</a></span><br>";
 		die ("No citations selected.");
 		
 		}
 	 
-	$author =  $_GET['author']; 
-	$authorID =  $_GET['authorID']; 
+	//$author =  $_GET['author']; 
+	//$authorID =  $_GET['authorID']; 
 	 
 	 $titlesByAuthorQuery = "select fielderAuthorFull.*, fielderAuthorCode.*, fielderBibRecord.* from fielderAuthorFull left join fielderAuthorCode on fielderAuthorFull.authorID = fielderAuthorCode.authorID left join fielderBibRecord on fielderAuthorCode.baseCode = fielderBibRecord.ID where fielderAuthorFull.authorID = '" . $authorID . "';";
 	//echo $titlesByAuthorQuery;

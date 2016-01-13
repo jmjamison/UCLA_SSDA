@@ -62,16 +62,16 @@
 	// class for database connections
 	include "../_classes/class.Database.php";
 	
-
+	$recordID =  htmlspecialchars($_GET['ID'], ENT_QUOTES); 
 	
 	// check, if NOT set 
-	if (!isset($_GET['ID'])) { 
+	if (!isset($recordID)) { 
 		echo "<span style='margin-left: 0; text-align: center; background-color: powderblue;'><a href='fielder_titles.php'>No citations selected. Return to catalog.</a></span><br>";
 		die ("No citations selected.");
 		
 		}
 	 
-	$recordID =  $_GET['ID']; 
+	
 	
 	// database name
 	$fielder_query = "select fielderBibRecord.*, fielderSubjectFull.*, fielderSubjectCode.*, fielderAuthorCode.*, fielderAuthorFull.*  from fielderBibRecord left join fielderSubjectCode on fielderBibRecord.ID = fielderSubjectCode.baseCode left join fielderSubjectFull on fielderSubjectCode.subjectID = fielderSubjectFull.subjectID left join fielderAuthorCode on fielderBibRecord.ID = fielderAuthorCode.baseCode left join fielderAuthorFull on fielderAuthorCode.authorID = fielderAuthorFull.authorID where fielderBibRecord.ID = '" . $recordID . "'";
