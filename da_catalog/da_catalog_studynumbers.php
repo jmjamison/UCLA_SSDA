@@ -144,7 +144,7 @@ if (!$result) {
 	}
 	
 		echo "</select><input type='submit' value='Get Record'>";
-		echo "<input name='title' type='hidden' value='" . $title  . "'>";
+		//echo "<input name='title' type='hidden' value='" . $title  . "'>";
 		echo "</form>";
 		
 		

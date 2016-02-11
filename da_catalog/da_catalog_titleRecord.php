@@ -200,7 +200,14 @@ if (!$result) {
 		echo "<br>";
 				
 		$row_index = 0;
-		$title = $titleRecord[$row_index]["title"];  // there is only going to be one title
+		
+		if (!isset($titleRecord[$row_index]["title"])) {  //   remove $title test, this will eventually be phased out as redundent -  or !isset($_GET['title'])  - jmj120409
+		echo "<span style='margin-left: 0; text-align: center; background-color: powderblue;'><a href='http://data-archive.library.ucla.edu/da_catalog'>No citations selected. Return to catalog.</a></span><br>";
+		die ("No citations selected.");		
+		} else {
+			$title = $titleRecord[$row_index]["title"];  // there is only going to be one title
+			}
+		
 		//echo $title;
 		$studyNum = $titleRecord[$row_index]["studyNum"];  // also only one study number per study
 		$restricted = $titleRecord[$row_index]["restricted"]; // ristricted also won't change

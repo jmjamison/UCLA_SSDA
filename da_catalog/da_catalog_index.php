@@ -162,7 +162,7 @@ if (!$result) {
 			if ($titlePerSubjectCount > 1) {
 				echo $currentHTTP . "da_catalog_titlesByIndexTerm.php?indexTerm=$indexTerm";
 			}	else  {
-				echo $currentHTTP . "da_catalog_titleRecord.php?studynumber=$studynum&title=$title";
+				echo $currentHTTP . "da_catalog_titleRecord.php?studynumber=$studynum";
 			}
 		echo "'>$indexTerm</a></h4>";
 		// - decision to print titlE or titleE(S) 
