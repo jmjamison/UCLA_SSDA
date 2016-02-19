@@ -54,7 +54,7 @@
 
 <!---------------------------------------------------------------------------------------------- -->
 <!--ssda page code goes here -->
-<H2 align="center">Authors</H2>
+
 
 <?php
 	
@@ -65,30 +65,22 @@
 	// class for database connections
 	include "../_classes/class.Database.php";
 	
-	$author =  htmlspecialchars($_GET['author'], ENT_QUOTES); 
+	//$author =  htmlspecialchars($_GET['author'], ENT_QUOTES); 
 	$authorID =  htmlspecialchars($_GET['authorID'], ENT_QUOTES); 
-	
-	 
-	// check, if NOT set 
-	if (!isset($author)) { 
-		echo "<span style='margin-left: 0; text-align: center; background-color: powderblue;'><a href='fielder_titles.php'>No citations selected. Return to catalog.</a></span><br>";
-		die ("No citations selected.");
-		
-		}
-		
-	if (!isset($authorID)) { 
-		echo "<span style='margin-left: 0; text-align: center; background-color: powderblue;'><a href='fielder_titles.php'>No citations selected. Return to catalog.</a></span><br>";
-		die ("No citations selected.");
-		
-		}
-	 
-	//$author =  $_GET['author']; 
-	//$authorID =  $_GET['authorID']; 
-	 
-	 $titlesByAuthorQuery = "select fielderAuthorFull.*, fielderAuthorCode.*, fielderBibRecord.* from fielderAuthorFull left join fielderAuthorCode on fielderAuthorFull.authorID = fielderAuthorCode.authorID left join fielderBibRecord on fielderAuthorCode.baseCode = fielderBibRecord.ID where fielderAuthorFull.authorID = '" . $authorID . "';";
+
+
+ $titlesByAuthorQuery = "select fielderAuthorFull.*, fielderAuthorCode.*, fielderBibRecord.* from fielderAuthorFull left join fielderAuthorCode on fielderAuthorFull.authorID = fielderAuthorCode.authorID left join fielderBibRecord on fielderAuthorCode.baseCode = fielderBibRecord.ID where fielderAuthorFull.authorID = '" . $authorID . "';";
 	//echo $titlesByAuthorQuery;
+		 
+	// check, if NOT set 
+	if (empty($authorID))  { 
+		echo "<span style='margin-left: 0; text-align: center; background-color: powderblue;'><a href='fielder_titles.php'>Return to catalog.</a></span><br>";
+		die ("Nothing selected.");
+		
+		}
+		
 	
-	
+		
 	// class.Database.php  is the class to make PDO connections
 // initialize new db connection instance
 $db = new Database();	 
@@ -104,20 +96,46 @@ if (!$result) {
 		}  // else {  echo "Successfully queried the database.<br>";   }  // for debugging
 
 	
-	echo "<H2>" . $author  . "</H2>";
+	
+	$indexList=array();
+		// first letter of indext term list
+		//$indexFirstLetterList=array();
+	 
+		//echo "<table id='alphaList' align='center'> ";
+		//echo "<tr>";  // start a row
+		
+		//$itemCount = 1;	  // count off the number of items in the alpha-block, 5 letters across
+		
+		$row_index = 0;
+		
+		
+		while ($row = $db->getRow())  {
+			$indexList[$row_index]["author"] = $row['author'];
+			$indexList[$row_index]["authorID"] = $row['authorID'];
+			$indexList[$row_index]["titleArticle"] = $row[ "titleArticle" ];
+			$indexList[$row_index]["title"] = $row[ "title" ];
+			$indexList[$row_index]["recordID"]= $row[ "ID" ];
+	 		$row_index++;
+	 		}
+			
+	$author = $indexList[0]["author"];
+	
+	echo "<center><H2>Authors: " . $author  . "</H2></center>";
 
 
 		 
 	
 	echo "<ul>";
+	
+	for ($row_index = 0; $row_index < count($indexList); $row_index++ ) {	
 
-		while ($row = $db->getRow())  {
+		//while ($row = $db->getRow())  {
 		// Non-PDO code ---------------------
 		//while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 			
-			$title = $row[ "title" ];
-			$titleArticle = $row[ "titleArticle" ];
-			$recordID = $row[ "ID" ];
+			$title = $indexList[$row_index]["title"];
+			$titleArticle = $indexList[$row_index]["titleArticle"];
+			$recordID =$indexList[$row_index]["recordID"];
 			
 			//$studynum = $row[ "StudyNum" ];
 			

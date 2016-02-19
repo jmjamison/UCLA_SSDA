@@ -63,29 +63,17 @@
 	// class for database connections
 	include "../_classes/class.Database.php";
 	
-	$subject =  htmlspecialchars($_GET['subject'], ENT_QUOTES); 
+	//$subject =  htmlspecialchars($_GET['subject'], ENT_QUOTES); 
 	$subjectID =  htmlspecialchars($_GET['subjectID'], ENT_QUOTES); 
 	
 	 
-	// check, if NOT set 
-	if (!isset($subject)) { 
-		echo "<span style='margin-left: 0; text-align: center; background-color: powderblue;'><a href='fielder_titles.php'>No citations selected. Return to catalog.</a></span><br>";
-		die ("No citations selected.");
-		
-		}
-		
-	if (!isset($subjectID)) { 
-		echo "<span style='margin-left: 0; text-align: center; background-color: powderblue;'><a href='fielder_titles.php'>No citations selected. Return to catalog.</a></span><br>";
-		die ("No citations selected.");
+	if (empty($subjectID)) { 
+		echo "<span style='margin-left: 0; text-align: center; background-color: powderblue;'><a href='fielder_titles.php'>Return to catalog.</a></span><br>";
+		die ("Nothing selected.");
 		
 		}
 	 
-	//$subject =  $_GET['subject']; 
-	//$subjectID =  $_GET['subjectID']; 
 	
-	
-	 
-	// sql query statement
 	
 	 
 	 $titlesBySubjectQuery = "select fielderSubjectFull.*, fielderSubjectCode.*, fielderBibRecord.* from fielderSubjectFull left join fielderSubjectCode on fielderSubjectFull.subjectID = fielderSubjectCode.subjectID left join fielderBibRecord on fielderSubjectCode.baseCode = fielderBibRecord.ID where fielderSubjectFull.subjectID = '" . $subjectID . "' ORDER BY title";
@@ -105,22 +93,37 @@ $result = $db->executeQuery();
 if (!$result) { 
 		die ("Could not query the database: <br />"); 		
 		}  // else {  echo "Successfully queried the database.<br>";   }  // for debugging
-
 	
-	echo "<p align='center'>subject / ID : <strong>" . $subject .  "</strong></p>";
-
-
-		 
+	
+			
+			
+		$row_index = 0;
+		
+		
+		while ($row = $db->getRow())  {
+			$indexList[$row_index]["subject"] = $row['subject'];
+			$indexList[$row_index]["subjectID"] = $row['subjectID'];
+			$indexList[$row_index]["titleArticle"] = $row[ "titleArticle" ];
+			$indexList[$row_index]["title"] = $row[ "title" ];
+			$indexList[$row_index]["recordID"]= $row[ "ID" ];
+	 		$row_index++;
+	 		}
+			
 	
 	echo "<ul>";
-
-		while ($row = $db->getRow())  {
-		// Non-PDO code ---------------------
-		//while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+	
+	$subject = $indexList[0]["subject"];
+	
+	echo "<p align='center'>subject: <strong>" . $subject .  "</strong></p>";
+	
+	
+	for ($row_index = 0; $row_index < count($indexList); $row_index++ ) {	
 			
-			$title = $row[ "title" ];
-			$titleArticle = $row[ "titleArticle" ];
-			$recordID = $row[ "ID" ];
+			$subject = $indexList[$row_index]["subject"];
+			$subjectID = $indexList[$row_index]["subjectID"];
+			$title = $indexList[$row_index]["title"];
+			$titleArticle = $indexList[$row_index]["titleArticle"];
+			$recordID =$indexList[$row_index]["recordID"];
 			
 			//$studynum = $row[ "StudyNum" ];
 			

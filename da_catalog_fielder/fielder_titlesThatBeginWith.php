@@ -69,9 +69,9 @@
 
 	 
 	// check, if NOT set 
-	if (!isset($index_letter)) { 
-		echo "<span style='margin-left: 0; text-align: center; background-color: powderblue;'><a href='fielder_titles.php'>No citations selected. Return to catalog.</a></span><br>";
-		die ("No citations selected.");
+	if (empty($index_letter)) { 
+		echo "<span style='margin-left: 0; text-align: center; background-color: powderblue;'><a href='fielder_titles.php'>Return to catalog.</a></span><br>";
+		die ("Nothing selected.");
 		
 		}
 	 

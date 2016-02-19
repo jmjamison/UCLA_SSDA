@@ -145,7 +145,8 @@ if (!$result) {
 			if ($firstLetterIndex == $value) {
 						
 				//echo $author . "<br>";
-				echo "<li class='alphaTitleList'><A HREF= '" . $currentHTTP . "fielder_byAuthorList.php?author=" . htmlentities($author, ENT_QUOTES ) . "&authorID=" .  $authorID . "'>" . $author  . "</a></li>";
+				//echo "<li class='alphaTitleList'><A HREF= '" . $currentHTTP . "fielder_byAuthorList.php?author=" . htmlentities($author, ENT_QUOTES ) . "&authorID=" .  $authorID . "'>" . $author  . "</a></li>";
+				echo "<li class='alphaTitleList'><A HREF= '" . $currentHTTP . "fielder_byAuthorList.php?authorID=" .  $authorID . "'>" . $author  . "</a></li>";
 				
 				}
 		

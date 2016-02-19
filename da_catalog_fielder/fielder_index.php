@@ -140,8 +140,8 @@ if (!$result) {
 			if ($firstLetterIndex == $value) {
 						
 				//echo $author . "<br>";
-				echo "<li class='alphaTitleList'><A HREF= '" . $currentHTTP . "fielder_bySubjectList.php?subject=" . $subject . "&subjectID=" .  $subjectID . "'>" . $subject  . "</a></li>";
-				
+				//echo "<li class='alphaTitleList'><A HREF= '" . $currentHTTP . "fielder_bySubjectList.php?subject=" . $subject . "&subjectID=" .  $subjectID . "'>" . $subject  . "</a></li>";
+				echo "<li class='alphaTitleList'><A HREF= '" . $currentHTTP . "fielder_bySubjectList.php?subjectID=" .  $subjectID . "'>" . $subject  . "</a></li>";
 				}
 		
 	  		}
