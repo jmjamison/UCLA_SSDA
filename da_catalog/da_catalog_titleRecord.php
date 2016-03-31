@@ -474,11 +474,12 @@ if (!$result) {
 					
 				} elseif (stristr ($filetype, "SDA Online Analysis")) { // archive sda files (in-house); $filetype, $dsname, $note
 				
+					//20160219jmj:  update the sda address to the current library site
 					//$sda_onlineanalysis_link="http://zuma.sscnet.ucla.edu/issr/da/sdaweb/cgi-bin/hsda?harc";
-					$sda_onlineanalysis_link="http://sda.sscnet.ucla.edu/cgi-bin/hsda?harc";
+					$sda_onlineanalysis_link="http://sda.library.ucla.edu/sdaweb/analysis/?dataset=";
 					echo "<TD>"  .  $filetype . "</TD>";  // which would be 'SDA online analysis' 
 					echo "<TD>" . $note  . " ** SDA</TD>";     // something like the year, description, etc :  Codebook 1985-2001
-					echo "<TD><a href='" . $sda_onlineanalysis_link . $dsname . "+" . $dsname . "'>" . $filetype . " (" .  $dsname .  ") <a></TD>";
+					echo "<TD><a href='" . $sda_onlineanalysis_link . $dsname . "'>" . $filetype . " (" .  $dsname .  ") <a></TD>";
 					
 				} elseif (stristr ($filetype, "Web Access")) { 
 				

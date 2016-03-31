@@ -1,5 +1,6 @@
 <?php
-	session_start();
+	session_start();	
+	error_reporting(0);
 ?>
 <html>
 <head><title>Data Archive Catalog: Edit Base Record</title>
@@ -17,16 +18,35 @@
   //error_reporting(E_ALL ^ E_NOTICE);
   //error_reporting(0);
   
-  	$currentHTTP = "http://data-archive.library.ucla.edu/da_catalog_maintenance/";	
+  	$currentHTTP = "http://data-archive-test.library.ucla.edu/da_catalog_maintenance/";
 	include("../_includes/SSDA_librarydatabase_edit.php"); 
 	// below links to the test version of the database, for testing
-	//include("SSDA_librarydatabase_edit.php"); 
+	//include("../_includes/SSDA_librarydatabase_test_edit.php"); 
+	
 	
 	
 	if (!empty($_POST['studynumber'])) {  // if NOT empty, ie it is set, query by studynumber for base record info
 		$_SESSION['studynumber'] = $_POST['studynumber'];
 		$studynumber =  $_SESSION['studynumber'];
 		echo "studynumber: " . $studynumber;
+		
+		// complete record info - arrays to hold record info 
+			$titleRecord = array();  // record - the title, sub# and restricted y/n
+			// list of pi(s)
+			$piList = array();		// list of pi(s)			
+			$piListFull = array();
+			
+			$current_pi = "";
+			$pi_new = "";  // this is used when adding new PI/principal investigators
+			$piListFullCount = null;
+			$temp = "";
+			
+			$subjectList = array(); // list of subjects
+			$subjectListFull = array();
+			$current_subject = '';
+			
+			$usefulLinks = array();	// linklist
+			
 		 	
 		
 		
@@ -57,25 +77,6 @@
 	  		if (!$result) {
 				die ("Could not query the database: <br />". mysql_error());
 				} 	
-				
-				
-			// complete record info
-			$titleRecord = array();  // record - the title, sub# and restricted y/n
-			// list of pi(s)
-			$piList = array();		// list of pi(s)
-			$piListFull = array();
-			$current_pi = '';
-			$piListFullCount = null;
-			$temp = "";
-			
-			$subjectList = array(); // list of subjects
-			$subjectListFull = array();
-			$current_subject = '';
-			
-			$usefulLinks = array();	// linklist
-			
-			
-		
 			
 			$row_index = 0;   
 			while ($row = $PDO_query->fetch(PDO::FETCH_ASSOC))  {
@@ -117,7 +118,8 @@
 				$temp_pi = $row["pi"];
 				if ($temp_pi != $current_pi) {
 					
-					$piListFull[$row_index]["pi_tisubsort"] = $row["tisubsort"];  // pi list sorted by surbsort called tisubsort
+					$piListFull[$row_index]["pi_tisubsort"] = $row["tisubsort"];  
+					// pi list sorted by surbsort called tisubsort
 					$piListFull[$row_index]["picode_id"] = $row["picode_id"];
 					$piListFull[$row_index]["pi"] = $temp_pi;
 					$piListFull[$row_index]["picode"] = $row["picode"];
@@ -431,7 +433,7 @@ $queryPI_list = "SELECT DISTINCT pi FROM pifull ORDER BY pi";
 			
 			$PI_list_count = count($PI_list);
 			// debugging purposes only
-			//echo "PI count: " . $PI_list_count . "    "; /
+			echo "PI count: " . $PI_list_count . "    ";  
 			
 //--------------------------------------------------------------
 //       end populate PI section
@@ -576,10 +578,13 @@ $querySubject_list = "SELECT DISTINCT subject FROM shfull ORDER BY subject";
        <hr>
   </form><br>
   
- 
+
+
+
  <form action='da_catalog_processFormCheck.php' method='post' name='editPI'> 
  <label>Principal Investigators (PIs) currently linked to <?php echo $studynumber;  ?>: </label> <?php echo $pi  ?><br>
-         <?php if (isset($_SESSION['studynumber'])) {
+ <em><strong>For now reording of PI's has to be done manually by Jamie - fix comming soon! </strong></em><br>
+        <?php if (isset($_SESSION['studynumber'])) {
 					
 					//echo "<br>";
 					$studynumber = $_SESSION['studynumber'];
@@ -602,17 +607,18 @@ $querySubject_list = "SELECT DISTINCT subject FROM shfull ORDER BY subject";
 							echo "<input name='studynumber' type='hidden' value='" .  $studynumber  . "' >";
 							echo "<input name='picode' type='text' value='pifull: " .  $picode  . "' >";
 							echo "<input name='picode_id' type='text' value='connection: " .  $picode_id  . "' >";
-							echo "<input name='item_id' type='hidden' value='" .  $picode_id  . "' >";
-							echo "<input name='tisort' type='hidden' value='" .  $tisort  . "' >";
-							echo "<input name='requestCategory' type='hidden' value='" . ($pi) . "'>";
+							echo "<input name='item_id' type='text' value='" .  $picode_id  . "' >";
+							echo "<input name='tisort' type='text' value='" .  $tisort  . "' >";
+							echo "<input name='requestCategory' type='text' value='" . ($pi) . "'>";
 							// the name below is the connecting table for pi
-							echo "<input name='table_name' type='hidden' value='picode'>";
+							echo "<input name='table_name' type='text' value='picode'>";
 							//
-							echo "<input name='pi_tisubsort' type='hidden' value='" . $pi_tisubsort . "'  size='3' maxlength='3'>";
+							echo "<input name='pi_tisubsort' type='text' value='" . $pi_tisubsort . "'  size='3' maxlength='3'>";
 							echo "<input name='item_subsort' type='text' value='" . $pi_tisubsort . "'  size='3' maxlength='3'>";
-							echo "<input name='item_subsort_fieldname' type='hidden' value='tisubsort'>";
+							echo "<input name='item_subsort_fieldname' type='text' value='tisubsort'>";
 							//
-							echo "<input name='requestType' type='submit' value='Update sort number'>     <input name='requestType' type='submit' value='Delete link'><br>";
+							//echo "<input name='requestType' type='submit' value='Update sort number'>";     
+							echo "<input name='requestType' type='submit' value='Delete link'><br><br>";
 							
 							
 							//onclick='" . deleteThing('picode', $picode_id)  . "'
@@ -669,11 +675,11 @@ $querySubject_list = "SELECT DISTINCT subject FROM shfull ORDER BY subject";
 					echo "<input name='studynumber' type='hidden' value='" .  $studynumber  . "' >    ";
 				} 
          ?>
-      <input name='tisort' type='hidden' value='<?php echo $tisort ?>' >
+      <input name='tisort'  value='<?php echo $tisort ?>' >
       <!-- the pi_tisubsort will contain whatever the last value was, use to derive the next tisubsort when creating a new picode record -->
-      <input name='pi_tisubsort' type='hidden' value='<?php echo $pi_tisubsort ?>"' size='3' maxlength='3'>
-      <input name='title' type='hidden' value='<?php echo $title ?>' >
-      <input name='pi_new' type='text' value=''  size='200' maxlength='255'>		
+      <input name='pi_tisubsort' value='<?php echo $pi_tisubsort ?>"' size='3' maxlength='3'>
+      <input name='title' type='text' value='<?php echo $title ?>' >
+      <input name='pi_new' type='text'  value=''  size='200' maxlength='255'>		
       <!--<input name='subject_new' type='text' value=''  size='200' maxlength='255'> -->
    
   </form>
@@ -682,15 +688,18 @@ $querySubject_list = "SELECT DISTINCT subject FROM shfull ORDER BY subject";
   
   <!-- beginning of the subject/index section -->
 <form action="da_catalog_processFormCheck.php" method="post" name="editSubject" >
-<label>Subject/Index or Keyword Terms currently linked to <?php echo $studynumber; ?>: </label><?php echo $subject  ?>
-   
-<!--<br><input name='subjectList' type='text' value='<?php echo $subject  ?>' size='200' maxlength='255'><br><br>
+    <p>
+        <label>Subject/Index or Keyword Terms currently linked to <?php echo $studynumber; ?>: </label>
+      <?php echo $subject  ?>
+        
+  <!--<br><input name='subjectList' type='text' value='<?php echo $subject  ?>' size='200' maxlength='255'><br><br>
  <!-- <br><input name='subject_new' type='text' value=''  size='200' maxlength='255'> -->
-  <!--<input name="pickSubjects" type="button" onClick="selectPasteCopy('editSubject', 'subject_list', 'subjectList')"  value="Select and Paste to Subject List"><br>
+      <!--<input name="pickSubjects" type="button" onClick="selectPasteCopy('editSubject', 'subject_list', 'subjectList')"  value="Select and Paste to Subject List"><br>
   <input name='pickSubjects2' type='button' onClick="selectPasteCopy('editSubject', 'subject_list', 'subject_new')" value='Select and Paste a SINGLE Subject/Keyword in text box below'> -->
-<!--<label>Select Term(s) from list:</label><br>
-<strong>Note</strong>: It is possible to select <em>MULTIPLE</em> subject/keyword terms but in order to add terms in a <strong>specific order</strong>, select and paste <em>each term Individually</em>.  --><br> 
-  <?php if (isset($_SESSION['studynumber'])) {
+  <!--<label>Select Term(s) from list:</label><br>
+<strong>Note</strong>: It is possible to select <em>MULTIPLE</em> subject/keyword terms but in order to add terms in a <strong>specific order</strong>, select and paste <em>each term Individually</em>.  --><br>
+  <strong><em>For now reording or deleting of Subjects/Indices has to be done manually by Jamie - fix comming soon!</em></strong><br> 
+      <?php if (isset($_SESSION['studynumber'])) {
 					
 					//echo "<br>";
 					$studynumber = $_SESSION['studynumber'];
@@ -726,7 +735,7 @@ $querySubject_list = "SELECT DISTINCT subject FROM shfull ORDER BY subject";
 							//
 							echo "<input name='table_name' type='hidden' value='shcode'>";
 							echo "<input name='item_subsort_fieldname' type='hidden' value='subsort'>";
-							echo "<input name='requestType' type='submit' value='Update sort number'>     <input name='requestType' type='submit' value='Delete link'>";
+							//echo "<input name='requestType' type='submit' value='Update sort number'>     <input name='requestType' type='submit' value='Delete link'><br>";
 							//echo "   " . $row_index;
 							$currentSubjectCode = $subjectcode;
 							}
@@ -736,8 +745,8 @@ $querySubject_list = "SELECT DISTINCT subject FROM shfull ORDER BY subject";
 				} 
         
          ?>
-    
-    <br><br>
+      
+      <br><br>
       <!--
         //--------------------------------------------------------------------------
         //   dropdown box that is populated with Subject/Keyword terms
@@ -745,9 +754,10 @@ $querySubject_list = "SELECT DISTINCT subject FROM shfull ORDER BY subject";
         //         pick from list and paste into text box/pi with javscript (da_catalog.js library)  selectPasteCopy and clearoutTextElement scripts functions
         //--------------------------------------------------------------------------
          -->
- <label>Subjects/Index Terms currently available</label><br>
+      <label>Subjects/Index Terms currently available</label>
+      <br>
       <select name="subject_list" size="10" multiple id="subject_list">
-       
+        
         <?php
 	   		
 			for ($row_index=0; $row_index < $Subject_list_count; $row_index++) {
@@ -758,6 +768,7 @@ $querySubject_list = "SELECT DISTINCT subject FROM shfull ORDER BY subject";
 				 }   
 		?>
       </select>
+    </p>
       <!--
          //---------------------------------------------------------------------------------
      	//  end of subject list box
@@ -771,8 +782,6 @@ $querySubject_list = "SELECT DISTINCT subject FROM shfull ORDER BY subject";
 <input name='pickSubjects2' type='button' onClick="selectPasteCopy('editSubject', 'subject_list', 'subject_new', 'addSubject')" value='Select and Paste a SINGLE Subject/Keyword in text box below'>
 
 <input name='addSubject' type='submit' value='Add New Subject/Keyword'> 
-
-<input name='subject_new' type='text' value=''  size='200' maxlength='255'>
       <?php if (isset($_SESSION['studynumber'])) {
 					
 					echo "<br>";
@@ -790,19 +799,17 @@ $querySubject_list = "SELECT DISTINCT subject FROM shfull ORDER BY subject";
 								//echo $value . "     <a href='' >edit</a>     <a href='' >delete</a><br>";
 						
 								//}
-								
 						
-						echo "<input name='studynumber' type='hidden' value='" .  $studynumber  . "' >    ";
-						echo "<input name='tisort' type='hidden' value='" .  $tisort  . "' >"; // the connecting field for title/picode/pifull
-						
-						echo "<input name='title' type='hidden' value='" . $title . "' >";
-						
+						echo "<input name='tisort' value='" .  $tisort  . "' >"; 
+						echo "<input name='studynumber' value='" .  $studynumber  . "' >    ";
+						// the connecting field for title/picode/pifull
+						echo "<input name='title' value='" . $title . "' >";
+						echo "<input name='subject_new' type='text' value=''  size='200' maxlength='255'>";
+						//echo "<input name='subject_subsort' value='" . $subject_subsort . "'  size='3' maxlength='3'>";
 						//echo "</h4>";	
 				} 
-        	
          ?>
-       
-</form>      
+</form>
   <!-- end of the subject/index section -->
      
  <?php  

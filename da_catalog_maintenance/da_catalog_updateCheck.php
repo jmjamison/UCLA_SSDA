@@ -1,3 +1,7 @@
+<?php
+	error_reporting(0);
+?>
+
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -29,12 +33,10 @@
 	//-------------------------------------------------------------------------------------
 	
 	$currentHTTP = "http://data-archive.library.ucla.edu/da_catalog_maintenance/";	
-	include("../_includes/SSDA_librarydatabase_edit.php"); 
+	//include("../_includes/SSDA_librarydatabase_edit.php"); 
 	// below links to the test version of the database, for testing
-	//include("SSDA_librarydatabase_edit.php"); 
-	// maintenance doesn't use the menu bar
-	//include("../_includes/SSDA_menubar.php");  
-	// SSDA_menubar.php has the menu code for da_catalog, da_catalog_fielder(fielder collection) and 'archive reource
+	include("../_includes/SSDA_librarydatabase_test_edit.php"); 
+	
 	
 	
 	// PDO connect  

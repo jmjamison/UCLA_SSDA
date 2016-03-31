@@ -1,5 +1,6 @@
 <?php
-	session_start();
+	session_start();	
+	error_reporting(0);
 ?>
 <html>
 <head><title>Study Titles: ALpha list</title>
@@ -13,7 +14,7 @@
 	$currentHTTP = "http://data-archive.library.ucla.edu/da_catalog_maintenance/";	
 	include("../_includes/SSDA_librarydatabase_edit.php"); 
 	// below links to the test version of the database, for testing
-	//include("SSDA_librarydatabase_edit.php"); 
+	//include("../_includes/SSDA_librarydatabase_test_edit.php"); 
 	
 	
 	

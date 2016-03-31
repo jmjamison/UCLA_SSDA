@@ -14,7 +14,21 @@
 	$currentHTTP = "http://data-archive.library.ucla.edu/da_catalog_maintenance/";	
 	include("../_includes/SSDA_librarydatabase_edit.php"); 
 	// below links to the test version of the database, for testing
-	//include("SSDA_librarydatabase_edit.php"); 
+	//include("../_includes/SSDA_librarydatabase_test_edit.php"); 
+	
+
+	
+	// PDO connect  
+	$PDO_string = "mysql:host=" . $db_host . ";port=" . $db_port . ";dbname=" . $db_name ;
+	
+	
+	try	{
+		$PDO_connection = new PDO($PDO_string, $db_username_edit, $db_password_edit); 
+		
+		} catch(PDOException $e)	{
+			echo "Could not connect to the database because: ".	$e->getMessage()."<br>";
+			die();
+			}
 	
 	
 	
@@ -106,10 +120,7 @@
 	$currentHTTP = "http://data-archive.library.ucla.edu/da_catalog_maintenance/";	
 	include("../_includes/SSDA_librarydatabase_edit.php"); 
 	// below links to the test version of the database, for testing
-	//include("SSDA_librarydatabase_edit.php"); 
-	
-	// for desktop test system
-	//$db_name = "da_catalog";	
+	//include("../_includes/SSDA_librarydatabase_test_edit.php"); 
 	
 //$queryTitleStudyNumFileType = "SELECT title.StudyNum, title.Title, fileinfo.* FROM title LEFT JOIN fileinfo ON title.StudyNum= fileinfo.StudyNum ORDER BY title.StudyNum";
 
@@ -118,8 +129,10 @@ $queryTitleStudyNumFileType = "SELECT title.StudyNum, fileinfo.FileType, fileinf
 
 echo "<b>" . $queryTitleStudyNumFileType . "";
 	
+	
 	// PDO connect  
 	$PDO_string = "mysql:host=" . $db_host . ";port=" . $db_port . ";dbname=" . $db_name ;
+	
 	
 	try	{
 		$PDO_connection = new PDO($PDO_string, $db_username_edit, $db_password_edit); 

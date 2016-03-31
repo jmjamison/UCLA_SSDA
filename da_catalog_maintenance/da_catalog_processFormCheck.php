@@ -23,40 +23,42 @@ session_start();
 
 <form action="da_catalog_edit.php" method="post" name="editRecord" target="_self">
 <input name='submitRecord' type='submit' value='Continue editing this record'>
-<input type='hidden' name='studynumber' value='<?php echo $studynumber ?>'>
+<input type='hidden' name='studynumber' value='<?php 
+
+if (!empty($_POST['studynumber'])) {  // if NOT empty, ie it is set, query by studynumber for base record info
+		$_SESSION['studynumber'] = $_POST['studynumber'];
+		$studynumber =  $_SESSION['studynumber'];
+		
+}
+echo $studynumber
+
+ ?>'>'>
 <h2 align="left" id="siteName">Continue to Edit this Record</h2>
 </form> 
    <?php
 		
 	// 13 March 2010 setup the GIT source control archive - jmj 
 	//
-	$sscnetHTTP = "http://www.sscnet.ucla.edu/issr/da/da_catalog/";
-	$sscnetHTTP_maintenance_test = "http://www.sscnet.ucla.edu/issr/da/da_catalog_maintenance_test/";
-	$sscnetHTTP_maintenance_live = "http://www.sscnet.ucla.edu/issr/da/da_catalog_maintenance/";
-	$mydestopHTTP = "http://localhost/da_catalog/";
-	$currentHTTP = $sscnetHTTP_maintenance_live;
+	$currentHTTP = "http://data-archive.library.ucla.edu/da_catalog_maintenance/";	
+	//include("../_includes/SSDA_librarydatabase_edit.php"); 
+	// below links to the test version of the database, for testing
+	include("../_includes/SSDA_librarydatabase_test_edit.php"); 
 	
-	$sscnetInclude = "ISSRDA_login.php";
-	$currentInclude = $sscnetInclude;
-	include($currentInclude); 
-	
-	// for desktop test system
-	//$db_name = "da_catalog";	
 	
 	
 	// PDO connect  
 	$PDO_string = "mysql:host=" . $db_host . ";port=" . $db_port . ";dbname=" . $db_name ;
 	
 	try	{
-		$PDO_connection = new PDO($PDO_string, $db_username, $db_password); 
+		$PDO_connection = new PDO($PDO_string, $db_username_edit, $db_password_edit); 
 		
 		} catch(PDOException $e)	{
 			echo "Could not connect to the database because: ".	$e->getMessage()."<br>";
 			die();
-			}
-		
+			}		
 	$current_query = "";
 	$result = "";
+	$pi_new = "";
 	
 	//   First insert into 3 tables: title, pifull (principle investigator(s)), shfull (subject/keyword(s))	 strtoupper  
 	
@@ -150,7 +152,9 @@ session_start();
 			echo "<br>request category: " . $requestCategory;
 			echo "<br>item id: " . $item_id;
 			echo "<br>"; 
-			echo $HTTP_POST_VARS['item_id'];
+			//echo $HTTP_POST_VARS['item_id']; - depreciated , use replacement for 4.1.0
+			echo $_POST['item_id'];
+			
 			echo "<br>"; 
 			if ($result) { 
 				echo "NOTE!! " . $studynumber . " exists"; 
@@ -338,10 +342,18 @@ session_start();
 	// pifull - the principle investigator table
 	// create the PI array of one or more principle investigator names
 	//    the insert will happen when after ok-ing the record
-	//----------------------------------------------------------------------------------	
+	//----------------------------------------------------------------------------------
+	//$pi_new = "";
 	
-	$pi = $_POST['pi_new'];
-	echo "<input type='hidden' name='pi_new' value='" . $pi_new . "'> ";
+	//$_SESSION['pi_new'] = $_POST['pi_new'];
+	//$pi_new = $_SESSION['pi_new'];	
+	//echo "PI to be added: " . $pi_new;
+	if (isset($_POST['pi_new'])) {
+		$pi_new = $_POST['pi_new'];
+		echo "<br>$pi_new";
+	} else { $pi_new = "";	}
+	
+	echo "<inputname='pi_new' value='" . $pi_new . "'> ";
 	//$piList = explode(";", $pi);
 	//$totalPI = count($piList);
 	
