@@ -583,7 +583,7 @@ $querySubject_list = "SELECT DISTINCT subject FROM shfull ORDER BY subject";
 
  <form action='da_catalog_processFormCheck.php' method='post' name='editPI'> 
  <label>Principal Investigators (PIs) currently linked to <?php echo $studynumber;  ?>: </label> <?php echo $pi  ?><br>
- <em><strong>For now reording of PI's has to be done manually by Jamie - fix comming soon! </strong></em><br>
+ <em><strong>For now reording or deleting of PI's must be done manually.</strong></em><br>
         <?php if (isset($_SESSION['studynumber'])) {
 					
 					//echo "<br>";
@@ -698,7 +698,7 @@ $querySubject_list = "SELECT DISTINCT subject FROM shfull ORDER BY subject";
   <input name='pickSubjects2' type='button' onClick="selectPasteCopy('editSubject', 'subject_list', 'subject_new')" value='Select and Paste a SINGLE Subject/Keyword in text box below'> -->
   <!--<label>Select Term(s) from list:</label><br>
 <strong>Note</strong>: It is possible to select <em>MULTIPLE</em> subject/keyword terms but in order to add terms in a <strong>specific order</strong>, select and paste <em>each term Individually</em>.  --><br>
-  <strong><em>For now reording or deleting of Subjects/Indices has to be done manually by Jamie - fix comming soon!</em></strong><br> 
+  <strong><em>For now reording or deleting of Subjects/Indices must be done manually.</em></strong><br> 
       <?php if (isset($_SESSION['studynumber'])) {
 					
 					//echo "<br>";
